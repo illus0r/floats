@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/illus0r/floats/issues"
   },
-  "homepage": "https://github.com/illus0r/floats#readme"
+  "homepage": "https://github.com/illus0r/floats#readme",
+  "devDependencies": {
+    "sass": "^1.23.0"
+  }
 }

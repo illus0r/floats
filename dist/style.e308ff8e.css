@@ -1,0 +1,13 @@
+body.page-float *{
+  svg{
+    display: none;
+  }
+}
+
+input#float-value{
+  width: 40vw;
+  font-size: 5vw;
+}
+
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
