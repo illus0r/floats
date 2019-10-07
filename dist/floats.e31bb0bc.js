@@ -131,7 +131,7 @@ function init() {
 } // Ivan's part, which determines the subset of parts and their order
 
 
-function composer(partsAvailable_) {
+function compose(partsAvailable_) {
   var inputText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "Hello";
   // temporary placeholder
   var parts = partsAvailable_.slice(0, 3);
@@ -140,7 +140,7 @@ function composer(partsAvailable_) {
 
 function onTextChange() {
   // Call Ivan's composer
-  var parts = composer(partsAvailable, inputText); // Draw parts in proper order on proper places
+  var parts = compose(partsAvailable, inputText); // Draw parts in proper order on proper places
   // Scale the float to fit the screen
 } // Runs infinitely
 
@@ -177,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60630" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64205" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

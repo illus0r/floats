@@ -22,7 +22,7 @@ function init(){
 }
 
 // Ivan's part, which determines the subset of parts and their order
-function composer(partsAvailable_, inputText="Hello"){
+function compose(partsAvailable_, inputText="Hello"){
 	// temporary placeholder
 	let parts = partsAvailable_.slice(0, 3)
 	return parts
@@ -30,7 +30,7 @@ function composer(partsAvailable_, inputText="Hello"){
 
 function onTextChange(){
 	// Call Ivan's composer
-	let parts = composer(partsAvailable, inputText)
+	let parts = compose(partsAvailable, inputText)
 
 	// Draw parts in proper order on proper places
 
