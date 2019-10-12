@@ -1,7 +1,7 @@
 var partsAvailable = []
 function init(){
 	// Load external SVG file
-
+//var draw = SVG('test').size(300, 300)
 	// Get the list of float's parts
 	// temporary placeholder
 	partsAvailable = [
