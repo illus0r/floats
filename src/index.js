@@ -42,4 +42,5 @@ function animate(){
 	// move SVG's group
 }
 
-init();
+init()
+console.log("hi")
