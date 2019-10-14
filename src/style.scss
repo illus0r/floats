@@ -1,4 +1,6 @@
 body.page-float{
+      background: darkseagreen;
+} 
   svg{
     bottom: 0;
     left: 0;
@@ -11,6 +13,6 @@ body.page-float{
     position: relative;
     width: 40vw;
     z-index: 1;
+    top: 80%;
   }
-}
 
