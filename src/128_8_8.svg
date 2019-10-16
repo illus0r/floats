@@ -1,7 +1,0 @@
-<svg width="512" height="133" viewBox="0 0 512 133" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="512" height="128" transform="matrix(-1 0 0 1 512 4)" fill="white"/>
-<ellipse rx="4" ry="1" transform="matrix(-1 0 0 1 256 132)" fill="#202020"/>
-<rect width="8" height="128" transform="matrix(-1 0 0 1 260 4)" fill="#BCB97F"/>
-<ellipse rx="4" ry="1" transform="matrix(-1 0 0 1 256 4)" fill="#BCB97F"/>
-<path d="M252 4C252 2.93913 252.421 1.92172 253.172 1.17157C253.922 0.421427 254.939 8.00932e-08 256 0C257.061 -8.00931e-08 258.078 0.421427 258.828 1.17157C259.579 1.92172 260 2.93913 260 4L256 4H252Z" fill="#BCB97F"/>
-</svg>
