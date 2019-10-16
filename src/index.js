@@ -1,6 +1,11 @@
 var YAML = require('yamljs')
 var rita = require('rita');
 
+function hashCode(str) {
+  return str.split('').reduce((prevHash, currVal) =>
+    (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
+}
+
 var partsAvailable = []
 function init(){
 	// Load external SVG file
@@ -93,7 +98,7 @@ function compose(partsAvailable_=[], inputText="Hello"){
 `
 
 	var rg = new RiGrammar(str);
-	RiTa.randomSeed(3);
+	RiTa.randomSeed(hashCode(inputText));
 	var result = rg.expand();
 	console.log(result);
 	var result = rg.expand();
@@ -123,18 +128,3 @@ function animate(){
 
 init()
 compose()
-
-//// TODO remove ↓
-//var tracery = require('tracery-grammar');
-
-//var grammar = tracery.createGrammar({
-  //'animal': ['panda','fox','capybara','iguana'],
-  //'emotion': ['sad','happy','angry','jealous'],
-  //'origin':['I am #emotion.a# #animal#.'],
-//});
-
-//grammar.addModifiers(tracery.baseEngModifiers); 
-
-//console.log(grammar.flatten('#origin#'));
-
-

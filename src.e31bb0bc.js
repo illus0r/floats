@@ -40724,6 +40724,12 @@ var YAML = require('yamljs');
 
 var rita = require('rita');
 
+function hashCode(str) {
+  return str.split('').reduce(function (prevHash, currVal) {
+    return (prevHash << 5) - prevHash + currVal.charCodeAt(0) | 0;
+  }, 0);
+}
+
 var partsAvailable = [];
 
 function init() {
@@ -40792,7 +40798,7 @@ function compose() {
   // temporary placeholder
   var str = "\n<start>:\n  - <rule1>\n  - <multiline>\n\n<rule1>:\n  - terminal string 1\n  - terminal string 2\n\n<multiline>: >\n  This is\n  a long string\n  that wraps three lines\n";
   var rg = new RiGrammar(str);
-  RiTa.randomSeed(3);
+  RiTa.randomSeed(hashCode(inputText));
   var result = rg.expand();
   console.log(result);
   var result = rg.expand();
@@ -40816,15 +40822,7 @@ function animate() {// move SVG's group
 }
 
 init();
-compose(); //// TODO remove ↓
-//var tracery = require('tracery-grammar');
-//var grammar = tracery.createGrammar({
-//'animal': ['panda','fox','capybara','iguana'],
-//'emotion': ['sad','happy','angry','jealous'],
-//'origin':['I am #emotion.a# #animal#.'],
-//});
-//grammar.addModifiers(tracery.baseEngModifiers); 
-//console.log(grammar.flatten('#origin#'));
+compose();
 },{"yamljs":"../node_modules/yamljs/lib/Yaml.js","rita":"../node_modules/rita/lib/rita.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -40853,7 +40851,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60332" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56133" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
