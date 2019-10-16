@@ -1,3 +1,5 @@
+var YAML = require('yamljs')
+var rita = require('rita');
 
 var partsAvailable = []
 function init(){
@@ -12,7 +14,6 @@ function init(){
 	ajax.open('GET', '../src/floats.svg', true)
 	ajax.send()
 	ajax.onload = function(e) {
-		console.log(ajax.responseText)
 		draw.svg(ajax.responseText)
 		var elements = SVG.select('[fill="#F04B40"]').fill('#f0e')
 	}
@@ -37,7 +38,7 @@ function init(){
 }
 
 // Ivan's part, which determines the subset of parts and their order
-function compose(partsAvailable_, inputText="Hello"){
+function compose(partsAvailable_=[], inputText="Hello"){
 	// first approach is to select parts randomly, according to their sizes.
 	// just make a hundred of random possible constructions and forbid those, who don't match sertain criteria. I.e. length, segment number. Other way is to make a generative grammar. But there should be some tweak. For example, the length of the float should be limited. It can be done with grammar rules, though. Hm. OK, let's see what we've gotten so far.
 	//
@@ -74,6 +75,34 @@ function compose(partsAvailable_, inputText="Hello"){
 	//  this list elements are unique. So now we can think out different parts of a float. It's crusial to avoid recursion
 	// 
 	// temporary placeholder
+	
+
+	var str = `
+<start>:
+  - <rule1>
+  - <multiline>
+
+<rule1>:
+  - terminal string 1
+  - terminal string 2
+
+<multiline>: >
+  This is
+  a long string
+  that wraps three lines
+`
+
+	var rg = new RiGrammar(str);
+	RiTa.randomSeed(3);
+	var result = rg.expand();
+	console.log(result);
+	var result = rg.expand();
+	console.log(result);
+	var result = rg.expand();
+	console.log(result);
+	var result = rg.expand();
+	console.log(result);
+
 	let parts = partsAvailable_.slice(0, 3)
 	return parts
 }
@@ -93,4 +122,19 @@ function animate(){
 }
 
 init()
-console.log("hi")
+compose()
+
+//// TODO remove ↓
+//var tracery = require('tracery-grammar');
+
+//var grammar = tracery.createGrammar({
+  //'animal': ['panda','fox','capybara','iguana'],
+  //'emotion': ['sad','happy','angry','jealous'],
+  //'origin':['I am #emotion.a# #animal#.'],
+//});
+
+//grammar.addModifiers(tracery.baseEngModifiers); 
+
+//console.log(grammar.flatten('#origin#'));
+
+
