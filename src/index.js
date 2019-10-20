@@ -19,12 +19,14 @@ function init(){
 	ajax.send()
 	ajax.onload = function(e) {
 		draw.svg(ajax.responseText)
-		var elements = SVG.select('fill="#F04B40"').fill('#f0e')
 	}
 
 	// Get the list of float's parts
 	// temporary placeholder
-	partsAvailable = [
+	
+	partsAvailable = ['#p-64-8-128', '#p-256-128-8', '#p-128-8-8']
+	
+	/* partsAvailable = [
 		[256, 256, 120],
 		[256, 256, 120],
 		[ 16,  16,  40],
@@ -33,9 +35,31 @@ function init(){
 		[ 16,  16,  40],
 		[ 16, 256, 100],
 		[256,  16,  40],
-	]
+	] */
 
 	// Set function onTextChange() to run on every text change. And run it for the first time.
+	// Пока что работает по нажатию клавиши без учёта изменения слов. 
+	function onTextChange() {
+  
+  var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"] // Палитра для окрашивания поплавков.
+  
+  var pickFromPalette1 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  var bodyTopAttr1 = SVG.select('#p-64-8-128').attr({ // Меняет цвет секции.
+    fill: pickFromPalette1})
+  
+  var pickFromPalette2 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  var bodyTopAttr2 = SVG.select('#p-256-128-8').attr({ // Меняет цвет секции.
+    fill: pickFromPalette2})
+  
+  var pickFromPalette3 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  var bodyTopAttr3 = SVG.select('#p-128-8-8').attr({ // Меняет цвет секции.
+    fill: pickFromPalette3})
+
+}
+
+document.querySelector("input").addEventListener("keydown", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
+
+onTextChange() // Меняет цвет при загрузке сайта.
 
 	// Launch the animation
 	animate()
@@ -124,6 +148,3 @@ function onTextChange(){
 function animate(){
 	// move SVG's group
 }
-
-init()
-compose()
