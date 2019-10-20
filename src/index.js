@@ -9,29 +9,6 @@ function hashCode(str) {
 var partsAvailable = []
 function init(){
 	// Load external SVG file
-	//var draw = SVG('test').size(300, 300)
-	
-	// S V G 
-	
-	// Пока не работает. Что не так?
-	
-// Меняет атрибуты всех фигур внутри верхней части корпуса. Заливка не работает. Закоменченные строчки 1...3 не влияют на это.
-var bodyTopAttr = SVG.select('g#bodyTop').attr({
-  fill: '#0ff',
- 'fill-opacity': 0.1,
-  stroke:'#00f',
- 'stroke-width': .5})
-.move(20)
-console.log(bodyTopAttr)
-	 
-  /*
-	 Переименовать надгруппы секций. Как-нибудь так: 2 → bodyTop. Так айди называется с буквы и не использует пробелы.
-  Хм, это затрагивает грамматическую систему? Там ведь есть айди группы, в которой содержится айди с кодовым именем. Это типа уже предусмотрено?
-  Пофиксить.Верхний блок корпуса целиком сдвинут вбок. У него меняются все атрибуты кроме заливки. Причём цвет обводки прописывается в логе.
-  Эллипсы внутри секции сдвинулись в обратную сторону от заданной. Если сдвигать блок целиком, сторона будет согласована с .move(x).
-	*/ 
-	
-	// S V G END
 	
 	// Ivan's attempt to loat external svg, according to
 	// https://stackoverflow.com/questions/26284029/svgjs-load-external-svg-file
@@ -42,7 +19,7 @@ console.log(bodyTopAttr)
 	ajax.send()
 	ajax.onload = function(e) {
 		draw.svg(ajax.responseText)
-		var elements = SVG.select('[fill="#F04B40"]').fill('#f0e')
+		var elements = SVG.select('fill="#F04B40"').fill('#f0e')
 	}
 
 	// Get the list of float's parts
