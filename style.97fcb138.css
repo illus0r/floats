@@ -3,19 +3,23 @@ body.page-float {
 }
 
 svg {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+  margin-top: 3em;
+  height: 100vh;
 }
 
 input#float-value {
-  font-size: 5vw;
-  position: relative;
-  width: 40vw;
-  z-index: 1;
-  top: 80%;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid black;
+  font-size: 30px;
+  outline: none;
+}
+input#float-value::placeholder {
+  color: black;
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */

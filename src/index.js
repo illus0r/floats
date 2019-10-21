@@ -1,3 +1,4 @@
+import SVG from 'svgjs';
 var YAML = require('yamljs')
 var rita = require('rita');
 
@@ -36,34 +37,38 @@ function init(){
 		[ 16, 256, 100],
 		[256,  16,  40],
 	] */
+}
 
-	// Set function onTextChange() to run on every text change. And run it for the first time.
-	// Пока что работает по нажатию клавиши без учёта изменения слов. 
-	function onTextChange() {
-  
+// Set function onTextChange() to run on every text change. And run it for the first time.
+// Пока что работает по нажатию клавиши без учёта изменения слов. 
+// onTextChange()
+
+document.querySelector("input#float-value").addEventListener("keydown", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
+
+function onTextChange() {
   var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"] // Палитра для окрашивания поплавков.
   
   var pickFromPalette1 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
   var bodyTopAttr1 = SVG.select('#p-64-8-128').attr({ // Меняет цвет секции.
-    fill: pickFromPalette1})
+    fill: pickFromPalette1,
+   'fill-opacity': 1})
   
   var pickFromPalette2 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
   var bodyTopAttr2 = SVG.select('#p-256-128-8').attr({ // Меняет цвет секции.
-    fill: pickFromPalette2})
+    fill: pickFromPalette2,
+   'fill-opacity': 1})
   
   var pickFromPalette3 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
   var bodyTopAttr3 = SVG.select('#p-128-8-8').attr({ // Меняет цвет секции.
-    fill: pickFromPalette3})
-
+    fill: pickFromPalette3,
+   'fill-opacity': 1})
 }
-
-document.querySelector("input").addEventListener("keydown", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
 
 onTextChange() // Меняет цвет при загрузке сайта.
 
 	// Launch the animation
 	animate()
-}
+
 
 // Ivan's part, which determines the subset of parts and their order
 function compose(partsAvailable_=[], inputText="Hello"){
@@ -135,14 +140,14 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	return parts
 }
 
-function onTextChange(){
-	// Call Ivan's composer
-	let parts = compose(partsAvailable, inputText)
+// function onTextChange(){
+// 	// Call Ivan's composer
+// 	let parts = compose(partsAvailable, inputText)
 
-	// Draw parts in proper order on proper places
+// 	// Draw parts in proper order on proper places
 
-	// Scale the float to fit the screen
-}
+// 	// Scale the float to fit the screen
+// }
 
 // Runs infinitely
 function animate(){
