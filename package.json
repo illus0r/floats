@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run serve",
-    "serve": "parcel serve ./src/index.html --open",
+    "serve": "parcel serve ./src/index.html --out-dir ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

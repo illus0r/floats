@@ -7,7 +7,7 @@ npm install -g parcel-bundler
 Go to the folder with this project and run it:
 
 ```
-parcel serve ./src/index.html --open
+parcel serve ./src/index.html --out-dir ./
 ```
 
 or

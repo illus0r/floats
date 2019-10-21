@@ -2,19 +2,47 @@ import SVG from 'svgjs';
 import YAML from 'yaml';
 var rita = require('rita');
 
-function hashCode(str) {
-  return str.split('').reduce((prevHash, currVal) =>
-    (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
-}
-
+// переменные
 const group = SVG.select('#floatParts');
 const circle = SVG.select('#waterCircle');
 const circle2 = SVG.select('#waterCircle2');
 
-var partsAvailable = []
+var partsAvailable = [];
+
+
+
+// вызов функций
+init();
+onTextChange(); // Меняет цвет при загрузке сайта.
+
+document.querySelector("input#float-value").addEventListener("keydown", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
+
+document.querySelector("#floatParts").addEventListener("click", function () {
+  animate();
+  
+  circle.attr({
+    rx: 0,
+    ry: 0,
+    opacity: 1
+  })
+  
+  circle2.attr({
+    rx: 0,
+    ry: 0,
+    opacity: 1
+  })
+}) 
+
+
+
+// функции
+function hashCode(str) {
+	return str.split('').reduce((prevHash, currVal) =>
+	  (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
+  }
+
 function init(){
-	// Load external SVG file
-	
+	// Load external SVG file	
 	// Ivan's attempt to loat external svg, according to
 	// https://stackoverflow.com/questions/26284029/svgjs-load-external-svg-file
 	var draw = SVG('drawing').size(800, 1500)
@@ -43,28 +71,11 @@ function init(){
 	] */
 }
 
+console.log(partsAvailable)
+
 // Set function onTextChange() to run on every text change. And run it for the first time.
 // Пока что работает по нажатию клавиши без учёта изменения слов. 
 // onTextChange()
-
-document.querySelector("input#float-value").addEventListener("keydown", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
-
-document.querySelector("#floatParts").addEventListener("click", function () {
-  animate();
-  
-  circle.attr({
-    rx: 0,
-    ry: 0,
-    opacity: 1
-  })
-  
-  circle2.attr({
-    rx: 0,
-    ry: 0,
-    opacity: 1
-  })
-}) 
-
 
 function onTextChange() {
   var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"] // Палитра для окрашивания поплавков.
@@ -85,11 +96,6 @@ function onTextChange() {
    'fill-opacity': 1})
 
 }
-
-onTextChange() // Меняет цвет при загрузке сайта.
-
-	// Launch the animation
-	// animate()
 
 
 // Ivan's part, which determines the subset of parts and their order
@@ -133,19 +139,19 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	
 
 	var str = `
-<start>:
-  - <rule1>
-  - <multiline>
+		<start>:
+		- <rule1>
+		- <multiline>
 
-<rule1>:
-  - terminal string 1
-  - terminal string 2
+		<rule1>:
+		- terminal string 1
+		- terminal string 2
 
-<multiline>: >
-  This is
-  a long string
-  that wraps three lines
-`
+		<multiline>: >
+		This is
+		a long string
+		that wraps three lines
+	`
 
 	var rg = new RiGrammar(str);
 	RiTa.randomSeed(hashCode(inputText));
