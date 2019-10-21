@@ -46286,6 +46286,12 @@ function hashCode(str) {
   }, 0);
 }
 
+var group = _svgjs.default.select('#floatParts');
+
+var circle = _svgjs.default.select('#waterCircle');
+
+var circle2 = _svgjs.default.select('#waterCircle2');
+
 var partsAvailable = [];
 
 function init() {
@@ -46322,6 +46328,20 @@ function init() {
 
 document.querySelector("input#float-value").addEventListener("keydown", onTextChange); // Меняет цвета по нажатию любой клавиши в поле.
 
+document.querySelector("#floatParts").addEventListener("click", function () {
+  animate();
+  circle.attr({
+    rx: 0,
+    ry: 0,
+    opacity: 1
+  });
+  circle2.attr({
+    rx: 0,
+    ry: 0,
+    opacity: 1
+  });
+});
+
 function onTextChange() {
   var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"]; // Палитра для окрашивания поплавков.
 
@@ -46352,8 +46372,8 @@ function onTextChange() {
 
 onTextChange(); // Меняет цвет при загрузке сайта.
 // Launch the animation
-
-animate(); // Ivan's part, which determines the subset of parts and their order
+// animate()
+// Ivan's part, which determines the subset of parts and their order
 
 function compose() {
   var partsAvailable_ = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -46416,7 +46436,18 @@ function compose() {
 // Runs infinitely
 
 
-function animate() {// move SVG's group
+function animate() {
+  group.animate(100, '>').move(0, 30).animate(100, '<>').rotate(3).animate(150, '<').move(0, -20).animate(100, '<>').rotate(-2).animate(300, '>').move(0, 0).animate(300, '<>').rotate(0);
+  circle.animate(1000, '>', 0).attr({
+    rx: 256,
+    ry: 64,
+    opacity: 0
+  });
+  circle2.animate(1000, '>', 100).attr({
+    rx: 256,
+    ry: 64,
+    opacity: 0
+  });
 }
 },{"svgjs":"../node_modules/svgjs/dist/svg.js","yamljs":"../node_modules/yamljs/lib/Yaml.js","rita":"../node_modules/rita/lib/rita.js"}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
