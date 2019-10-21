@@ -1,5 +1,5 @@
 import SVG from 'svgjs';
-var YAML = require('yamljs')
+import YAML from 'yaml';
 var rita = require('rita');
 
 function hashCode(str) {
