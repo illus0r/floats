@@ -26,6 +26,8 @@ function init(){
 		draw.svg(ajax.responseText)
 	}
 
+init()
+
 	// Get the list of float's parts
 	// temporary placeholder
 	
@@ -48,7 +50,7 @@ function init(){
 // onTextChange()
 
 document.querySelector("input#float-value").addEventListener("keydown", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
-
+/*
 document.querySelector("#floatParts").addEventListener("click", function () {
   animate();
   
@@ -64,7 +66,7 @@ document.querySelector("#floatParts").addEventListener("click", function () {
     opacity: 1
   })
 }) 
-
+*/
 
 function onTextChange() {
   var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"] // Палитра для окрашивания поплавков.
@@ -193,3 +195,6 @@ function animate(){
     opacity: 0
   })
 }
+
+
+console.log(partsAvailable)
