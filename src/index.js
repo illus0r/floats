@@ -16,7 +16,7 @@ init();
 onTextChange(); // Меняет цвет при загрузке сайта.
 
 document.querySelector("input#float-value").addEventListener("keydown", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
-
+document.querySelector("input#float-value").addEventListener("keydown", translateAndShow) // Должен сместить часть поплавка и показать его.
 document.querySelector("#floatParts").addEventListener("click", function () {
   animate();
   
@@ -52,12 +52,18 @@ function init(){
 	ajax.send()
 	ajax.onload = function(e) {
 		draw.svg(ajax.responseText)
+		
+		onTextChange()
 	}
 
 	// Get the list of float's parts
 	// temporary placeholder
 	
-	partsAvailable = ['#p-64-8-128', '#p-256-128-8', '#p-128-8-8']
+	partsAvailable = [
+	'#p-128-8-8',
+	'#p-64-8-128',
+	'#p-256-128-8', 
+	'#p-512-8-8',]
 	
 	/* partsAvailable = [
 		[256, 256, 120],
@@ -70,8 +76,6 @@ function init(){
 		[256,  16,  40],
 	] */
 }
-
-console.log(partsAvailable)
 
 // Set function onTextChange() to run on every text change. And run it for the first time.
 // Пока что работает по нажатию клавиши без учёта изменения слов. 
@@ -97,6 +101,20 @@ function onTextChange() {
    'fill-opacity': 1})
 
 }
+
+
+/*
+// Trying “float drawing algorithm”
+function translateAndShow() {
+  var offsetY = 0;
+  var translate = SVG.select(partsAvailable[0]).attr ({
+    fill: '#ff0', // As sensor
+    cx: 0, cy: 'offsetY + 128' }) // Translator
+    
+  var show = document.getElementsByTagName("g");
+    document.g.style.display = "" // To show g's again 
+    }
+*/
 
 
 // Ivan's part, which determines the subset of parts and their order
@@ -175,6 +193,7 @@ function compose(partsAvailable_=[], inputText="Hello"){
 
 // 	// Draw parts in proper order on proper places
 
+
 // 	// Scale the float to fit the screen
 // }
 
@@ -202,4 +221,3 @@ function animate(){
 }
 
 
-console.log(partsAvailable)
