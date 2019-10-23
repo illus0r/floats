@@ -46312,7 +46312,8 @@ function init() {
   ajax.send();
 
   ajax.onload = function (e) {
-    floatSVG = draw.svg(ajax.responseText);
+    floatSVG = draw.svg(ajax.responseText); //floatSVG.scale(0, 0)
+
     floatSVG.move(0, 0); // hide background from Figma
 
     _svgjs.default.select('#floatParts>rect, svg>rect').hide(); //console.log(SVG.select())
@@ -46367,7 +46368,8 @@ function onTextChange() {
   //
   //console.log("partsAvailable are")
   //console.log(partsAvailable)
-  var parts = compose(partsAvailable, "Hello Kitty"); //console.log("parts are")
+  var text = document.getElementById("float-value").value;
+  var parts = compose(partsAvailable, text); //console.log("parts are")
   //console.log(parts)
   // hide all parts
 
@@ -46416,7 +46418,9 @@ function translateAndShow() {
 function compose() {
   var partsAvailable_ = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var inputText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "Hello";
-  // Every possible part of a float can be regarded as terminal token. Let's start with a list of such tokens:
+  console.log(inputText);
+  var pseudoRandom = hashCode(inputText);
+  console.log(pseudoRandom); // Every possible part of a float can be regarded as terminal token. Let's start with a list of such tokens:
   //  [ 16,  16,  40],
   //  [ 16, 256, 100],
   //  [256,  16,  40],
@@ -46428,7 +46432,59 @@ function compose() {
   //  16_256 → 3, 6
   //  256_16 → 4, 7
   //  256_256 → 0, 1
-  //
+
+  var partsStripped = partsAvailable_.map(unpackFloatId).map(function (d) {
+    return d.slice(1, 3);
+  }); //var set = new Set()
+  //partsStripped.forEach(d => {
+  //if(!set.has(d)){
+  //set.add(d)
+  //}
+  //})
+
+  var unique = [];
+  partsStripped.forEach(function (p) {
+    var i = unique.findIndex(function (x) {
+      return x[0] == p[0] && x[1] == p[1];
+    });
+
+    if (i <= -1) {
+      unique.push(p);
+    }
+  });
+  console.log(partsAvailable_);
+  console.log(unique);
+  var str = "\n\t<start>:\n\t- <top> <middle> <bottom>\n\n\t<top>:\n\t- <0_8>\n\n\t<middle>:\n\t- <8_128> <128_8>\n\t- <8_128> <128_8> <8_128> <128_8>\n\n\t<bottom>:\n\t- <8_0>\n\t";
+  var rg = new RiGrammar(str);
+  RiTa.randomSeed(pseudoRandom);
+
+  var _loop = function _loop(i) {
+    var p = partsStripped[i];
+    console.log(p);
+    ui = unique.findIndex(function (u) {
+      return u[0] == p[0] && u[1] == p[1];
+    });
+
+    if (ui >= 0) {
+      rg.addRule('<' + unique[ui][0] + '_' + unique[ui][1] + '>', i.toString());
+      console.log('<' + unique[ui][0] + '_' + unique[ui][1] + '>', i.toString());
+    }
+  };
+
+  for (var i = 0; i < partsStripped.length; i++) {
+    var ui;
+
+    _loop(i);
+  }
+
+  var result = rg.expand();
+  console.log("result");
+  console.log();
+  console.log(rg);
+  var parts = [];
+  result.split(' ').map(Number).forEach(function (r) {
+    parts.push(partsAvailable_[r]);
+  }); //
   //	←top  o--------<(____)>-----  bottom→
   //  2. Теперь самое грамматика. Надо закодировать как-то понятно все комбинации поплавков.
   //  bottom → #16_16# #16_16# #16_16# #16_#
@@ -46449,12 +46505,7 @@ function compose() {
   //  this list elements are unique. So now we can think out different parts of a float. It's crusial to avoid recursion
   // 
   // temporary placeholder
-  var str = "\n\t<start>:\n\t- <rule1>\n\t- <multiline>\n\n\t<rule1>:\n\t- terminal string 1\n\t- terminal string 2\n\n\t<multiline>:\n\t- This is not realy a multiline\n\t";
-  var rg = new RiGrammar(str);
-  RiTa.randomSeed(hashCode(inputText));
-  var result = rg.expand(); //console.log(result);
 
-  var parts = partsAvailable_.slice(0, 3);
   return parts;
 } // function onTextChange(){
 // 	// Call Ivan's composer
@@ -46506,7 +46557,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52673" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63437" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

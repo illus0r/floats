@@ -36,6 +36,7 @@ function init(){
 	ajax.send()
 	ajax.onload = function(e) {
 		floatSVG = draw.svg(ajax.responseText)
+		//floatSVG.scale(0, 0)
 		floatSVG.move(0,0)
 		
 		// hide background from Figma
@@ -99,7 +100,9 @@ function onTextChange() {
 	//
 	//console.log("partsAvailable are")
 	//console.log(partsAvailable)
-	let parts = compose(partsAvailable, "Hello Kitty")
+	
+	let text = document.getElementById("float-value").value
+	let parts = compose(partsAvailable, text)
 	//console.log("parts are")
 	//console.log(parts)
 
@@ -142,6 +145,9 @@ function translateAndShow() {
 
 // Ivan's part, which determines the subset of parts and their order
 function compose(partsAvailable_=[], inputText="Hello"){
+	console.log(inputText)
+	let pseudoRandom = hashCode(inputText)
+	console.log(pseudoRandom)
 	// Every possible part of a float can be regarded as terminal token. Let's start with a list of such tokens:
   //  [ 16,  16,  40],
   //  [ 16, 256, 100],
@@ -154,6 +160,60 @@ function compose(partsAvailable_=[], inputText="Hello"){
   //  16_256 → 3, 6
   //  256_16 → 4, 7
   //  256_256 → 0, 1
+	let partsStripped = partsAvailable_.map(unpackFloatId).map(d => {return d.slice(1,3)})
+	//var set = new Set()
+	//partsStripped.forEach(d => {
+		//if(!set.has(d)){
+			//set.add(d)
+		//}
+	//})
+	var unique = [];
+	partsStripped.forEach(function(p){
+		var i = unique.findIndex(x => x[0] == p[0] && x[1] == p[1]);
+		if(i <= -1){
+			unique.push(p);
+		}
+	});
+	console.log(partsAvailable_);
+	console.log(unique);
+
+	var str = `
+	<start>:
+	- <top> <middle> <bottom>
+
+	<top>:
+	- <0_8>
+
+	<middle>:
+	- <8_128> <128_8>
+	- <8_128> <128_8> <8_128> <128_8>
+
+	<bottom>:
+	- <8_0>
+	`
+
+	var rg = new RiGrammar(str);
+	RiTa.randomSeed(pseudoRandom);
+	
+	for( let i = 0; i<partsStripped.length; i++){
+    let p = partsStripped[i]
+		console.log(p)
+		var ui = unique.findIndex(u => u[0] == p[0] && u[1] == p[1]);
+		if(ui>=0){
+			rg.addRule('<'+unique[ui][0]+'_'+unique[ui][1]+'>', i.toString());
+			console.log('<'+unique[ui][0]+'_'+unique[ui][1]+'>', i.toString());
+		}
+	}
+	var result = rg.expand();
+	console.log("result");
+	console.log();
+	console.log(rg);
+	let parts = []
+	result.split(' ').map(Number).forEach(r => {
+		parts.push(partsAvailable_[r])
+	})
+
+
 	//
 	//	←top  o--------<(____)>-----  bottom→
 	//  2. Теперь самое грамматика. Надо закодировать как-то понятно все комбинации поплавков.
@@ -177,25 +237,7 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	// temporary placeholder
 	
 
-	var str = `
-	<start>:
-	- <rule1>
-	- <multiline>
 
-	<rule1>:
-	- terminal string 1
-	- terminal string 2
-
-	<multiline>:
-	- This is not realy a multiline
-	`
-
-	var rg = new RiGrammar(str);
-	RiTa.randomSeed(hashCode(inputText));
-	var result = rg.expand();
-	//console.log(result);
-
-	let parts = partsAvailable_.slice(0, 3)
 	return parts
 }
 
