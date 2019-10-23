@@ -52,29 +52,18 @@ function init(){
 	ajax.send()
 	ajax.onload = function(e) {
 		draw.svg(ajax.responseText)
-		
 		onTextChange()
+
+		// Get the list of float's parts
+		var partsSVG = SVG.select('#floatParts>g')
+		partsSVG.each(function(d) {
+			let p = this.attr('id')
+			partsAvailable.push(p)
+		})
+		console.log(partsAvailable)
 	}
 
-	// Get the list of float's parts
-	// temporary placeholder
 	
-	partsAvailable = [
-	'#p-128-8-8',
-	'#p-64-8-128',
-	'#p-256-128-8', 
-	'#p-512-8-8',]
-	
-	/* partsAvailable = [
-		[256, 256, 120],
-		[256, 256, 120],
-		[ 16,  16,  40],
-		[ 16, 256, 100],
-		[256,  16,  40],
-		[ 16,  16,  40],
-		[ 16, 256, 100],
-		[256,  16,  40],
-	] */
 }
 
 // Set function onTextChange() to run on every text change. And run it for the first time.
@@ -119,9 +108,6 @@ function translateAndShow() {
 
 // Ivan's part, which determines the subset of parts and their order
 function compose(partsAvailable_=[], inputText="Hello"){
-	// first approach is to select parts randomly, according to their sizes.
-	// just make a hundred of random possible constructions and forbid those, who don't match sertain criteria. I.e. length, segment number. Other way is to make a generative grammar. But there should be some tweak. For example, the length of the float should be limited. It can be done with grammar rules, though. Hm. OK, let's see what we've gotten so far.
-	//
 	// Every possible part of a float can be regarded as terminal token. Let's start with a list of such tokens:
   //  [ 16,  16,  40],
   //  [ 16, 256, 100],
@@ -166,10 +152,8 @@ function compose(partsAvailable_=[], inputText="Hello"){
 		- terminal string 1
 		- terminal string 2
 
-		<multiline>: >
-		This is
-		a long string
-		that wraps three lines
+		<multiline>:
+		- This is not realy a multiline
 	`
 
 	var rg = new RiGrammar(str);
