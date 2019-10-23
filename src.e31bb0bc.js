@@ -46305,17 +46305,19 @@ function hashCode(str) {
 
 function init() {
   var draw = (0, _svgjs.default)('drawing');
-  draw.size(5000, 5000);
-  var rect = draw.rect(400, 400).attr({
-    fill: '#f06'
-  });
+  draw.size(5000, 5000); //var rect = draw.rect(400, 400).attr({ fill: '#f06' })
+
   var ajax = new XMLHttpRequest();
   ajax.open('GET', '../src/floats.svg', true);
   ajax.send();
 
   ajax.onload = function (e) {
     floatSVG = draw.svg(ajax.responseText);
-    floatSVG.move(0, 0); // Get the list of float's parts
+    floatSVG.move(0, 0); // hide background from Figma
+
+    _svgjs.default.select('#floatParts>rect, svg>rect').hide(); //console.log(SVG.select())
+    // Get the list of float's parts
+
 
     var partsSVG = _svgjs.default.select('#floatParts>g');
 
@@ -46327,7 +46329,6 @@ function init() {
     // Binding events listeners
 
     document.querySelector("input#float-value").addEventListener("input", onTextChange); // Меняет цвета по нажатию любой клавиши в поле.
-    //document.querySelector("input#float-value").addEventListener("input", translateAndShow) // Должен сместить часть поплавка и показать его.
 
     document.querySelector("#floatParts").addEventListener("click", function () {
       animate();
@@ -46383,6 +46384,7 @@ function onTextChange() {
     //p.y(offsetY)
 
     p.move(0, offsetY);
+    p.back();
     var h, t, b;
 
     var _unpackFloatId = unpackFloatId(pId);
@@ -46392,7 +46394,7 @@ function onTextChange() {
     h = _unpackFloatId2[0];
     t = _unpackFloatId2[1];
     b = _unpackFloatId2[2];
-    //console.log(h, t, b)
+    console.log(h, t, b);
     offsetY += h;
   });
 }
@@ -46504,7 +46506,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56173" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52673" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

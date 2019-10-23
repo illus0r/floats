@@ -30,13 +30,17 @@ function hashCode(str) {
 function init(){
 	var draw = SVG('drawing')
 	draw.size(5000, 5000)
-	var rect = draw.rect(400, 400).attr({ fill: '#f06' })
+	//var rect = draw.rect(400, 400).attr({ fill: '#f06' })
 	var ajax = new XMLHttpRequest()
 	ajax.open('GET', '../src/floats.svg', true)
 	ajax.send()
 	ajax.onload = function(e) {
 		floatSVG = draw.svg(ajax.responseText)
 		floatSVG.move(0,0)
+		
+		// hide background from Figma
+		SVG.select('#floatParts>rect, svg>rect').hide()
+		//console.log(SVG.select())
 
 		// Get the list of float's parts
 		var partsSVG = SVG.select('#floatParts>g')
@@ -50,7 +54,6 @@ function init(){
 		// Binding events listeners
 
 		document.querySelector("input#float-value").addEventListener("input", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
-		//document.querySelector("input#float-value").addEventListener("input", translateAndShow) // Должен сместить часть поплавка и показать его.
 		document.querySelector("#floatParts").addEventListener("click", function () {
 			animate();
 			
@@ -113,9 +116,10 @@ function onTextChange() {
 		//p.x(0)
 		//p.y(offsetY)
 	  p.move(0, offsetY)
+		p.back()
 		let h, t, b
 		[h, t, b] = unpackFloatId(pId)
-		//console.log(h, t, b)
+		console.log(h, t, b)
 		offsetY += h
 	})
 	

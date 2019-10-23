@@ -1,31 +1,41 @@
-<svg width="693" height="1147" viewBox="0 0 693 1147" xmlns="http://www.w3.org/2000/svg">
-	<g id="floatParts">
-		<g id="p-512-8-8">
-			<rect id="Rectangle 24" x="252" y="452" width="8" height="512" />
-			<circle id="Ellipse 31" cx="256" cy="964" r="4" />
-			<ellipse id="Ellipse 32" cx="256" cy="452" rx="4" ry="1" />
-		</g>
-
-		<g id="p-256-128-8">
-			<ellipse id="Ellipse 30" cx="256" cy="453" rx="4" ry="1" />
-			<path id="Vector 15" d="M192 197C192 380.742 252 424.84 252 453H260C260 427.4 320 380.742 320 197H192Z" />
-			<ellipse id="Ellipse 29" cx="256" cy="197" rx="64" ry="16" />
-		</g>
-
-		<ellipse id="waterCircle" cx="256" cy="201" rx="0" ry="0" fill="none" stroke="white"/>
-    	<ellipse id="waterCircle2" cx="256" cy="201" rx="0" ry="0" fill="none" stroke="white"/>
-
-		<g id="p-64-8-128">
-			<ellipse id="Ellipse 27" cx="256" cy="197" rx="64" ry="16" />
-			<path id="Vector 15_2" d="M192 197C192 159 252 170.684 252 133H260C260 170.684 320 159 320 197H192Z" />
-			<ellipse id="Ellipse 28" cx="256" cy="133" rx="4" ry="1" />
-		</g>
-
-		<g id="p-128-8-8">
-			<ellipse id="Ellipse 26" rx="4" ry="1" transform="matrix(-1 0 0 1 256 133)" />
-			<rect id="Rectangle 20" width="8" height="128" transform="matrix(-1 0 0 1 260 5)" />
-			<ellipse id="Ellipse 25" rx="4" ry="1" transform="matrix(-1 0 0 1 256 5)" />
-			<path id="Ellipse 26_2" d="M252 5C252 3.93913 252.421 2.92172 253.172 2.17157C253.922 1.42143 254.939 1 256 1C257.061 1 258.078 1.42143 258.828 2.17157C259.579 2.92172 260 3.93913 260 5L256 5H252Z"/>
-		</g>
-	</g>
+<svg width="3297" height="2051" viewBox="0 0 3297 2051" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="3297" height="2051" fill="black"/>
+<g id="floatParts" clip-path="url(#clip0)">
+<rect width="3297" height="2051" fill="white"/>
+<g id="p-256-8-128">
+<path id="Vector 15" d="M192 256C192 72.2576 252 28.16 252 0H260C260 25.6 320 72.2576 320 256H192Z" fill="#F7E7CA"/>
+<ellipse id="Ellipse 29" rx="64" ry="16" transform="matrix(1 0 0 -1 256 256)" fill="#F7E7CA"/>
+<ellipse id="Ellipse 30" rx="4" ry="1" transform="matrix(1 0 0 -1 256 0)" fill="#202020"/>
+</g>
+<g id="p-512-8-">
+<rect id="Rectangle 24" x="252" width="8" height="512" fill="#202020"/>
+<circle id="Ellipse 31" cx="256" cy="512" r="4" fill="#202020"/>
+<ellipse id="Ellipse 32" cx="256" rx="4" ry="1" fill="#F04B40"/>
+</g>
+<g id="p-256-128-8">
+<ellipse id="Ellipse 30_2" cx="256" cy="256" rx="4" ry="1" fill="#F7E7CA"/>
+<path id="Vector 15_2" d="M192 0C192 183.742 252 227.84 252 256H260C260 230.4 320 183.742 320 0H192Z" fill="#F7E7CA"/>
+<ellipse id="Ellipse 29_2" cx="256" rx="64" ry="16" fill="#202020"/>
+</g>
+<g id="p-64-8-128">
+<path id="Ellipse 27" d="M320 64C320 66.1012 318.345 68.1817 315.128 70.1229C311.912 72.0641 307.198 73.828 301.255 75.3137C295.312 76.7994 288.257 77.978 280.492 78.7821C272.727 79.5861 264.405 80 256 80C247.595 80 239.273 79.5861 231.508 78.7821C223.743 77.978 216.688 76.7994 210.745 75.3137C204.802 73.828 200.088 72.0641 196.872 70.1229C193.655 68.1817 192 66.1011 192 64L256 64H320Z" fill="#F04B40"/>
+<path id="Vector 15_3" d="M192 64C192 26 252 37.6839 252 0H260C260 37.6839 320 26 320 64H192Z" fill="#F04B40"/>
+<ellipse id="Ellipse 28" cx="256" rx="4" ry="1" fill="#202020"/>
+</g>
+<g id="p-128--8">
+<ellipse id="Ellipse 26" rx="4" ry="1" transform="matrix(-1 0 0 1 256 128)" fill="#BCB97F"/>
+<rect id="Rectangle 20" width="8" height="128" transform="matrix(-1 0 0 1 260 0)" fill="#BCB97F"/>
+<ellipse id="Ellipse 25" rx="4" ry="1" transform="matrix(-1 0 0 1 256 0)" fill="#BCB97F"/>
+</g>
+<g id="p-64-128-8">
+<path id="Vector 15_4" d="M192 0C192 38 252 26.3161 252 64H260C260 26.3161 320 38 320 0H192Z" fill="#F04B40"/>
+<ellipse id="Ellipse 28_2" rx="4" ry="1" transform="matrix(1 0 0 -1 256 64)" fill="#F04B40"/>
+<path id="Ellipse 29_3" d="M192 0C192 2.10115 193.655 4.18173 196.872 6.12293C200.088 8.06414 204.802 9.82797 210.745 11.3137C216.688 12.7994 223.743 13.978 231.508 14.7821C239.273 15.5861 247.595 16 256 16C264.405 16 272.727 15.5861 280.492 14.7821C288.257 13.978 295.312 12.7994 301.255 11.3137C307.198 9.82797 311.912 8.06414 315.128 6.12293C318.345 4.18172 320 2.10115 320 -9.53674e-07L256 0H192Z" fill="#202020"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="3297" height="2051" fill="white"/>
+</clipPath>
+</defs>
 </svg>
