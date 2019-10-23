@@ -46266,6 +46266,14 @@ var _svgjs = _interopRequireDefault(require("svgjs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 YAML = require('yamljs');
 
 var rita = require('rita'); // переменные
@@ -46277,28 +46285,17 @@ var circle = _svgjs.default.select('#waterCircle');
 
 var circle2 = _svgjs.default.select('#waterCircle2');
 
-var partsAvailable = []; // вызов функций
+var partsAvailable = [];
+var floatSVG; // вызов функций
 
 init();
-onTextChange(); // Меняет цвет при загрузке сайта.
 
-document.querySelector("input#float-value").addEventListener("keydown", onTextChange); // Меняет цвета по нажатию любой клавиши в поле.
+function unpackFloatId() {
+  var floatId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'p-1-2-3';
+  var a = floatId.split('-').map(Number);
+  return [a[1], a[2], a[3]];
+} // функции
 
-document.querySelector("input#float-value").addEventListener("keydown", translateAndShow); // Должен сместить часть поплавка и показать его.
-
-document.querySelector("#floatParts").addEventListener("click", function () {
-  animate();
-  circle.attr({
-    rx: 0,
-    ry: 0,
-    opacity: 1
-  });
-  circle2.attr({
-    rx: 0,
-    ry: 0,
-    opacity: 1
-  });
-}); // функции
 
 function hashCode(str) {
   return str.split('').reduce(function (prevHash, currVal) {
@@ -46307,26 +46304,45 @@ function hashCode(str) {
 }
 
 function init() {
-  // Load external SVG file	
-  // Ivan's attempt to loat external svg, according to
-  // https://stackoverflow.com/questions/26284029/svgjs-load-external-svg-file
-  var draw = (0, _svgjs.default)('drawing').size(800, 1500); //var rect = draw.rect(400, 400).attr({ fill: '#f06' })
-
+  var draw = (0, _svgjs.default)('drawing');
+  draw.size(5000, 5000);
+  var rect = draw.rect(400, 400).attr({
+    fill: '#f06'
+  });
   var ajax = new XMLHttpRequest();
   ajax.open('GET', '../src/floats.svg', true);
   ajax.send();
 
   ajax.onload = function (e) {
-    draw.svg(ajax.responseText);
-    onTextChange(); // Get the list of float's parts
+    floatSVG = draw.svg(ajax.responseText);
+    floatSVG.move(0, 0); // Get the list of float's parts
 
     var partsSVG = _svgjs.default.select('#floatParts>g');
 
     partsSVG.each(function (d) {
       var p = this.attr('id');
       partsAvailable.push(p);
+    }); //console.log("partsAvailable are init")
+    //console.log(partsAvailable)
+    // Binding events listeners
+
+    document.querySelector("input#float-value").addEventListener("input", onTextChange); // Меняет цвета по нажатию любой клавиши в поле.
+    //document.querySelector("input#float-value").addEventListener("input", translateAndShow) // Должен сместить часть поплавка и показать его.
+
+    document.querySelector("#floatParts").addEventListener("click", function () {
+      animate();
+      circle.attr({
+        rx: 0,
+        ry: 0,
+        opacity: 1
+      });
+      circle2.attr({
+        rx: 0,
+        ry: 0,
+        opacity: 1
+      });
     });
-    console.log(partsAvailable);
+    onTextChange();
   };
 } // Set function onTextChange() to run on every text change. And run it for the first time.
 // Пока что работает по нажатию клавиши без учёта изменения слов. 
@@ -46334,30 +46350,50 @@ function init() {
 
 
 function onTextChange() {
-  var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"]; // Палитра для окрашивания поплавков.
+  //var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"] // Палитра для окрашивания поплавков.
+  //var pickFromPalette1 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  //var bodyTopAttr1 = SVG.select('#p-64-8-128').attr({ // Меняет цвет секции.
+  //fill: pickFromPalette1,
+  //'fill-opacity': 1})
+  //var pickFromPalette2 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  //var bodyTopAttr2 = SVG.select('#p-256-128-8').attr({ // Меняет цвет секции.
+  //fill: pickFromPalette2,
+  //'fill-opacity': 1})
+  //var pickFromPalette3 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  //var bodyTopAttr3 = SVG.select('#p-128-8-8').attr({ // Меняет цвет секции.
+  //fill: pickFromPalette3,
+  //'fill-opacity': 1})
+  //
+  //console.log("partsAvailable are")
+  //console.log(partsAvailable)
+  var parts = compose(partsAvailable, "Hello Kitty"); //console.log("parts are")
+  //console.log(parts)
+  // hide all parts
 
-  var pickFromPalette1 = palette[Math.floor(Math.random() * palette.length)]; // Рандомайзер колорпика.
+  _svgjs.default.select('#floatParts>g').hide(); // show needed parts
 
-  var bodyTopAttr1 = _svgjs.default.select('#p-64-8-128').attr({
-    // Меняет цвет секции.
-    fill: pickFromPalette1,
-    'fill-opacity': 1
-  });
 
-  var pickFromPalette2 = palette[Math.floor(Math.random() * palette.length)]; // Рандомайзер колорпика.
+  console.log(parts);
+  var offsetY = 0;
+  parts.forEach(function (pId) {
+    var p = _svgjs.default.select('#' + pId);
 
-  var bodyTopAttr2 = _svgjs.default.select('#p-256-128-8').attr({
-    // Меняет цвет секции.
-    fill: pickFromPalette2,
-    'fill-opacity': 1
-  });
+    p.show(); //console.log(p.y())
+    //p.x(0)
+    //p.y(offsetY)
 
-  var pickFromPalette3 = palette[Math.floor(Math.random() * palette.length)]; // Рандомайзер колорпика.
+    p.move(0, offsetY);
+    var h, t, b;
 
-  var bodyTopAttr3 = _svgjs.default.select('#p-128-8-8').attr({
-    // Меняет цвет секции.
-    fill: pickFromPalette3,
-    'fill-opacity': 1
+    var _unpackFloatId = unpackFloatId(pId);
+
+    var _unpackFloatId2 = _slicedToArray(_unpackFloatId, 3);
+
+    h = _unpackFloatId2[0];
+    t = _unpackFloatId2[1];
+    b = _unpackFloatId2[2];
+    //console.log(h, t, b)
+    offsetY += h;
   });
 }
 /*
@@ -46411,17 +46447,11 @@ function compose() {
   //  this list elements are unique. So now we can think out different parts of a float. It's crusial to avoid recursion
   // 
   // temporary placeholder
-  var str = "\n\t\t<start>:\n\t\t- <rule1>\n\t\t- <multiline>\n\n\t\t<rule1>:\n\t\t- terminal string 1\n\t\t- terminal string 2\n\n\t\t<multiline>:\n\t\t- This is not realy a multiline\n\t";
+  var str = "\n\t<start>:\n\t- <rule1>\n\t- <multiline>\n\n\t<rule1>:\n\t- terminal string 1\n\t- terminal string 2\n\n\t<multiline>:\n\t- This is not realy a multiline\n\t";
   var rg = new RiGrammar(str);
   RiTa.randomSeed(hashCode(inputText));
-  var result = rg.expand();
-  console.log(result);
-  var result = rg.expand();
-  console.log(result);
-  var result = rg.expand();
-  console.log(result);
-  var result = rg.expand();
-  console.log(result);
+  var result = rg.expand(); //console.log(result);
+
   var parts = partsAvailable_.slice(0, 3);
   return parts;
 } // function onTextChange(){
@@ -46474,7 +46504,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64248" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56173" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -2,11 +2,6 @@ body {
   background: darkseagreen;
 }
 
-svg {
-  margin-top: 3em;
-  height: 100vh;
-}
-
 input#float-value {
   position: absolute;
   left: 20px;

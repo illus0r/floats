@@ -1,58 +1,42 @@
-import SVG from 'svgjs';
-YAML = require('yamljs');
-var rita = require('rita');
+import SVG from 'svgjs'
+YAML = require('yamljs')
+var rita = require('rita')
 
 // переменные
-const group = SVG.select('#floatParts');
-const circle = SVG.select('#waterCircle');
-const circle2 = SVG.select('#waterCircle2');
+const group = SVG.select('#floatParts')
+const circle = SVG.select('#waterCircle')
+const circle2 = SVG.select('#waterCircle2')
 
-var partsAvailable = [];
-
+var partsAvailable = []
+var floatSVG
 
 
 // вызов функций
-init();
-onTextChange(); // Меняет цвет при загрузке сайта.
+init()
 
-document.querySelector("input#float-value").addEventListener("keydown", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
-document.querySelector("input#float-value").addEventListener("keydown", translateAndShow) // Должен сместить часть поплавка и показать его.
-document.querySelector("#floatParts").addEventListener("click", function () {
-  animate();
-  
-  circle.attr({
-    rx: 0,
-    ry: 0,
-    opacity: 1
-  })
-  
-  circle2.attr({
-    rx: 0,
-    ry: 0,
-    opacity: 1
-  })
-}) 
 
+function unpackFloatId(floatId='p-1-2-3'){
+	let a = floatId.split('-').map(Number)
+	return [a[1],a[2],a[3]]
+}
 
 
 // функции
 function hashCode(str) {
 	return str.split('').reduce((prevHash, currVal) =>
-	  (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0);
+	  (((prevHash << 5) - prevHash) + currVal.charCodeAt(0))|0, 0)
   }
 
 function init(){
-	// Load external SVG file	
-	// Ivan's attempt to loat external svg, according to
-	// https://stackoverflow.com/questions/26284029/svgjs-load-external-svg-file
-	var draw = SVG('drawing').size(800, 1500)
-	//var rect = draw.rect(400, 400).attr({ fill: '#f06' })
+	var draw = SVG('drawing')
+	draw.size(5000, 5000)
+	var rect = draw.rect(400, 400).attr({ fill: '#f06' })
 	var ajax = new XMLHttpRequest()
 	ajax.open('GET', '../src/floats.svg', true)
 	ajax.send()
 	ajax.onload = function(e) {
-		draw.svg(ajax.responseText)
-		onTextChange()
+		floatSVG = draw.svg(ajax.responseText)
+		floatSVG.move(0,0)
 
 		// Get the list of float's parts
 		var partsSVG = SVG.select('#floatParts>g')
@@ -60,10 +44,31 @@ function init(){
 			let p = this.attr('id')
 			partsAvailable.push(p)
 		})
-		console.log(partsAvailable)
+		//console.log("partsAvailable are init")
+		//console.log(partsAvailable)
+
+		// Binding events listeners
+
+		document.querySelector("input#float-value").addEventListener("input", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
+		//document.querySelector("input#float-value").addEventListener("input", translateAndShow) // Должен сместить часть поплавка и показать его.
+		document.querySelector("#floatParts").addEventListener("click", function () {
+			animate();
+			
+			circle.attr({
+				rx: 0,
+				ry: 0,
+				opacity: 1
+			})
+			
+			circle2.attr({
+				rx: 0,
+				ry: 0,
+				opacity: 1
+			})
+		}) 
+		onTextChange()
 	}
 
-	
 }
 
 // Set function onTextChange() to run on every text change. And run it for the first time.
@@ -72,23 +77,48 @@ function init(){
 
 
 function onTextChange() {
-  var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"] // Палитра для окрашивания поплавков.
+  //var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"] // Палитра для окрашивания поплавков.
   
-  var pickFromPalette1 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
-  var bodyTopAttr1 = SVG.select('#p-64-8-128').attr({ // Меняет цвет секции.
-    fill: pickFromPalette1,
-   'fill-opacity': 1})
+  //var pickFromPalette1 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  //var bodyTopAttr1 = SVG.select('#p-64-8-128').attr({ // Меняет цвет секции.
+    //fill: pickFromPalette1,
+   //'fill-opacity': 1})
   
-  var pickFromPalette2 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
-  var bodyTopAttr2 = SVG.select('#p-256-128-8').attr({ // Меняет цвет секции.
-    fill: pickFromPalette2,
-   'fill-opacity': 1})
+  //var pickFromPalette2 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  //var bodyTopAttr2 = SVG.select('#p-256-128-8').attr({ // Меняет цвет секции.
+    //fill: pickFromPalette2,
+   //'fill-opacity': 1})
   
-  var pickFromPalette3 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
-  var bodyTopAttr3 = SVG.select('#p-128-8-8').attr({ // Меняет цвет секции.
-    fill: pickFromPalette3,
-   'fill-opacity': 1})
+  //var pickFromPalette3 = palette[Math.floor(Math.random()*palette.length)] // Рандомайзер колорпика.
+  //var bodyTopAttr3 = SVG.select('#p-128-8-8').attr({ // Меняет цвет секции.
+    //fill: pickFromPalette3,
+   //'fill-opacity': 1})
+	//
+	//console.log("partsAvailable are")
+	//console.log(partsAvailable)
+	let parts = compose(partsAvailable, "Hello Kitty")
+	//console.log("parts are")
+	//console.log(parts)
 
+	// hide all parts
+	SVG.select('#floatParts>g').hide()
+
+	// show needed parts
+	console.log(parts)
+	var offsetY = 0
+	parts.forEach(pId => {
+		let p = SVG.select('#'+pId)
+		p.show()
+		//console.log(p.y())
+		//p.x(0)
+		//p.y(offsetY)
+	  p.move(0, offsetY)
+		let h, t, b
+		[h, t, b] = unpackFloatId(pId)
+		//console.log(h, t, b)
+		offsetY += h
+	})
+	
 }
 
 
@@ -144,28 +174,22 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	
 
 	var str = `
-		<start>:
-		- <rule1>
-		- <multiline>
+	<start>:
+	- <rule1>
+	- <multiline>
 
-		<rule1>:
-		- terminal string 1
-		- terminal string 2
+	<rule1>:
+	- terminal string 1
+	- terminal string 2
 
-		<multiline>:
-		- This is not realy a multiline
+	<multiline>:
+	- This is not realy a multiline
 	`
 
 	var rg = new RiGrammar(str);
 	RiTa.randomSeed(hashCode(inputText));
 	var result = rg.expand();
-	console.log(result);
-	var result = rg.expand();
-	console.log(result);
-	var result = rg.expand();
-	console.log(result);
-	var result = rg.expand();
-	console.log(result);
+	//console.log(result);
 
 	let parts = partsAvailable_.slice(0, 3)
 	return parts
