@@ -2,6 +2,10 @@ body {
   background: darkseagreen;
 }
 
+svg svg {
+  display: none;
+}
+
 input#float-value {
   position: absolute;
   left: 20px;

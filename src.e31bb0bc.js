@@ -46286,7 +46286,8 @@ var circle = _svgjs.default.select('#waterCircle');
 var circle2 = _svgjs.default.select('#waterCircle2');
 
 var partsAvailable = [];
-var floatSVG; // вызов функций
+var floatSVG;
+var draw = (0, _svgjs.default)('drawing'); // вызов функций
 
 init();
 
@@ -46304,7 +46305,6 @@ function hashCode(str) {
 }
 
 function init() {
-  var draw = (0, _svgjs.default)('drawing');
   draw.size(5000, 5000); //var rect = draw.rect(400, 400).attr({ fill: '#f06' })
 
   var ajax = new XMLHttpRequest();
@@ -46312,7 +46312,9 @@ function init() {
   ajax.send();
 
   ajax.onload = function (e) {
-    floatSVG = draw.svg(ajax.responseText); //floatSVG.scale(0, 0)
+    floatSVG = draw.svg(ajax.responseText); //var defs = draw.defs()
+    //defs.add(SVG.select('#floatParts>g') )
+    //floatSVG.scale(0, 0)
 
     floatSVG.move(0, 0); // hide background from Figma
 
@@ -46371,19 +46373,27 @@ function onTextChange() {
   var text = document.getElementById("float-value").value;
   var parts = compose(partsAvailable, text); //console.log("parts are")
   //console.log(parts)
+  //delete all clones
+  //SVG.select('.clone').remove()
+  //console.log('clonekilling')
+  //console.log(SVG.select('.clone'))
+  //SVG.select('g.clone').replace(' ')
+  //SVG.select('g.instance').remove()
   // hide all parts
 
-  _svgjs.default.select('#floatParts>g').hide(); // show needed parts
+  _svgjs.default.select('use').hide(); // show needed parts
 
 
   console.log(parts);
   var offsetY = 0;
   parts.forEach(function (pId) {
-    var p = _svgjs.default.select('#' + pId);
+    var p = draw.use(pId); //.clone()
 
-    p.show(); //console.log(p.y())
-    //p.x(0)
-    //p.y(offsetY)
+    p.attr('opacity', '1'); //if(p.visible()){
+    //console.log('oops! ' + p +' is visible')
+    //}
+    //p.addClass('instance')
+    //p.attr('id',null)
 
     p.move(0, offsetY);
     p.back();
@@ -46557,7 +46567,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63437" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61377" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

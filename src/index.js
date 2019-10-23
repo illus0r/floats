@@ -9,6 +9,7 @@ const circle2 = SVG.select('#waterCircle2')
 
 var partsAvailable = []
 var floatSVG
+var draw = SVG('drawing')
 
 
 // вызов функций
@@ -28,7 +29,6 @@ function hashCode(str) {
   }
 
 function init(){
-	var draw = SVG('drawing')
 	draw.size(5000, 5000)
 	//var rect = draw.rect(400, 400).attr({ fill: '#f06' })
 	var ajax = new XMLHttpRequest()
@@ -36,6 +36,8 @@ function init(){
 	ajax.send()
 	ajax.onload = function(e) {
 		floatSVG = draw.svg(ajax.responseText)
+		//var defs = draw.defs()
+		//defs.add(SVG.select('#floatParts>g') )
 		//floatSVG.scale(0, 0)
 		floatSVG.move(0,0)
 		
@@ -105,20 +107,29 @@ function onTextChange() {
 	let parts = compose(partsAvailable, text)
 	//console.log("parts are")
 	//console.log(parts)
+	
+	//delete all clones
+	//SVG.select('.clone').remove()
+	//console.log('clonekilling')
+	//console.log(SVG.select('.clone'))
+	//SVG.select('g.clone').replace(' ')
+	//SVG.select('g.instance').remove()
 
 	// hide all parts
-	SVG.select('#floatParts>g').hide()
+	SVG.select('use').hide()
 
 	// show needed parts
 	console.log(parts)
 	var offsetY = 0
 	parts.forEach(pId => {
-		let p = SVG.select('#'+pId)
-		p.show()
-		//console.log(p.y())
-		//p.x(0)
-		//p.y(offsetY)
-	  p.move(0, offsetY)
+		let p = draw.use(pId)//.clone()
+		p.attr('opacity','1')
+		//if(p.visible()){
+			//console.log('oops! ' + p +' is visible')
+		//}
+		//p.addClass('instance')
+		//p.attr('id',null)
+		p.move(0, offsetY)
 		p.back()
 		let h, t, b
 		[h, t, b] = unpackFloatId(pId)
