@@ -3,13 +3,14 @@ YAML = require('yamljs')
 var rita = require('rita')
 
 // переменные
-const group = SVG.select('#floatParts')
+
 const circle = SVG.select('#waterCircle')
 const circle2 = SVG.select('#waterCircle2')
 
 var partsAvailable = []
 var floatSVG
 var draw = SVG('drawing')
+let bobberGroup = draw.group()
 
 
 // вызов функций
@@ -57,8 +58,9 @@ function init(){
 		// Binding events listeners
 
 		document.querySelector("input#float-value").addEventListener("input", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
-		document.querySelector("#floatParts").addEventListener("click", function () {
-			animate();
+
+		document.querySelector("#SvgjsG1008").addEventListener("click", function () {
+			animate ();
 			
 			circle.attr({
 				rx: 0,
@@ -71,10 +73,10 @@ function init(){
 				ry: 0,
 				opacity: 1
 			})
-		}) 
+		})
+
 		onTextChange()
 	}
-
 }
 
 // Set function onTextChange() to run on every text change. And run it for the first time.
@@ -120,9 +122,11 @@ function onTextChange() {
 
 	// show needed parts
 	console.log(parts)
+ 	
 	var offsetY = 0
 	parts.forEach(pId => {
 		let p = draw.use(pId)//.clone()
+		bobberGroup.add(p); // добавляю элементы в группу для анимации
 		p.attr('opacity','1')
 		//if(p.visible()){
 			//console.log('oops! ' + p +' is visible')
@@ -261,28 +265,24 @@ function compose(partsAvailable_=[], inputText="Hello"){
 
 // 	// Scale the float to fit the screen
 // }
-
-// Runs infinitely
-function animate(){
-	group
-    .animate(100, '>').move(0, 30)
-    .animate(100, '<>').rotate(3)
-    .animate(150, '<').move(0, -20)
-    .animate(100, '<>').rotate(-2)
-    .animate(300, '>').move(0, 0)
-    .animate(300, '<>').rotate(0);
-  
-  circle.animate(1000, '>', 0).attr({
-    rx: 256,
-    ry: 64,
-    opacity: 0
-  })
-  
-  circle2.animate(1000, '>', 100).attr({
-    rx: 256,
-    ry: 64,
-    opacity: 0
-  })
+function animate () {
+	bobberGroup
+		.animate(100, '>').move(0, 30)
+		.animate(100, '<>').rotate(3)
+		.animate(150, '<').move(0, -20)
+		.animate(100, '<>').rotate(-2)
+		.animate(300, '>').move(0, 0)
+		.animate(300, '<>').rotate(0);
+	
+	// circle.animate(3000, '>', 0).attr({
+	// 	rx: 512,
+	// 	ry: 128,
+	// 	opacity: 0
+	//   })
+		
+	// circle2.animate(3000, '>', 100).attr({
+	// 	rx: 512,
+	// 	ry: 128,
+	// 	opacity: 0
+	// })
 }
-
-
