@@ -46279,15 +46279,14 @@ YAML = require('yamljs');
 var rita = require('rita'); // переменные
 
 
-var group = _svgjs.default.select('#floatParts');
-
 var circle = _svgjs.default.select('#waterCircle');
 
 var circle2 = _svgjs.default.select('#waterCircle2');
 
 var partsAvailable = [];
 var floatSVG;
-var draw = (0, _svgjs.default)('drawing'); // вызов функций
+var draw = (0, _svgjs.default)('drawing');
+var bobberGroup = draw.group(); // вызов функций
 
 init();
 
@@ -46333,7 +46332,7 @@ function init() {
 
     document.querySelector("input#float-value").addEventListener("input", onTextChange); // Меняет цвета по нажатию любой клавиши в поле.
 
-    document.querySelector("#floatParts").addEventListener("click", function () {
+    document.querySelector("#SvgjsG1008").addEventListener("click", function () {
       animate();
       circle.attr({
         rx: 0,
@@ -46387,6 +46386,8 @@ function onTextChange() {
   var offsetY = 0;
   parts.forEach(function (pId) {
     var p = draw.use(pId); //.clone()
+
+    bobberGroup.add(p); // добавляю элементы в группу для анимации
 
     p.attr('opacity', '1'); //if(p.visible()){
     //console.log('oops! ' + p +' is visible')
@@ -46522,21 +46523,19 @@ function compose() {
 // 	// Draw parts in proper order on proper places
 // 	// Scale the float to fit the screen
 // }
-// Runs infinitely
 
 
 function animate() {
-  group.animate(100, '>').move(0, 30).animate(100, '<>').rotate(3).animate(150, '<').move(0, -20).animate(100, '<>').rotate(-2).animate(300, '>').move(0, 0).animate(300, '<>').rotate(0);
-  circle.animate(1000, '>', 0).attr({
-    rx: 256,
-    ry: 64,
-    opacity: 0
-  });
-  circle2.animate(1000, '>', 100).attr({
-    rx: 256,
-    ry: 64,
-    opacity: 0
-  });
+  bobberGroup.animate(100, '>').move(0, 30).animate(100, '<>').rotate(3).animate(150, '<').move(0, -20).animate(100, '<>').rotate(-2).animate(300, '>').move(0, 0).animate(300, '<>').rotate(0); // circle.animate(3000, '>', 0).attr({
+  // 	rx: 512,
+  // 	ry: 128,
+  // 	opacity: 0
+  //   })
+  // circle2.animate(3000, '>', 100).attr({
+  // 	rx: 512,
+  // 	ry: 128,
+  // 	opacity: 0
+  // })
 }
 },{"svgjs":"../node_modules/svgjs/dist/svg.js","yamljs":"../node_modules/yamljs/lib/Yaml.js","rita":"../node_modules/rita/lib/rita.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -46566,7 +46565,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55101" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55259" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
