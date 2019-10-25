@@ -46381,8 +46381,7 @@ function onTextChange() {
   //SVG.select('g.instance').remove()
   // hide all parts
 
-  _svgjs.default.select('use').hide(); // show needed parts
-
+  draw.select('use').hide(); // show needed parts
 
   console.log(parts);
   var offsetY = 0;
@@ -46464,7 +46463,7 @@ function compose() {
   });
   console.log(partsAvailable_);
   console.log(unique);
-  var str = "\n\t<start>:\n\t- <top> <middle> <bottom>\n\n\t<top>:\n\t- <0_8>\n\n\t<middle>:\n\t- <8_128> <128_8>\n\t- <8_128> <128_8> <8_128> <128_8>\n\n\t<bottom>:\n\t- <8_0>\n\t";
+  var str = "\n\t<start>:\n\t- <top> <middle> <bottom>\n\n\t<top>:\n\t- <0_8>\n\n\t<middle>:\n\t- <8_128> <0_0> <128_8>\n\t- <8_128> <128_8> <0_0> <8_128> <128_8>\n\n\t<bottom>:\n\t- <8_0>\n\t";
   var rg = new RiGrammar(str);
   RiTa.randomSeed(pseudoRandom);
 
@@ -46567,7 +46566,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61377" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55101" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

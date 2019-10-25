@@ -116,7 +116,7 @@ function onTextChange() {
 	//SVG.select('g.instance').remove()
 
 	// hide all parts
-	SVG.select('use').hide()
+	draw.select('use').hide()
 
 	// show needed parts
 	console.log(parts)
@@ -196,8 +196,8 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	- <0_8>
 
 	<middle>:
-	- <8_128> <128_8>
-	- <8_128> <128_8> <8_128> <128_8>
+	- <8_128> <0_0> <128_8>
+	- <8_128> <128_8> <0_0> <8_128> <128_8>
 
 	<bottom>:
 	- <8_0>
