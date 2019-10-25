@@ -40,7 +40,7 @@ function init(){
 		//var defs = draw.defs()
 		//defs.add(SVG.select('#floatParts>g') )
 		//floatSVG.scale(0, 0)
-		floatSVG.move(0,0)
+		floatSVG.move(0,20)
 		
 		// hide background from Figma
 		SVG.select('#floatParts>rect, svg>rect').hide()
@@ -133,7 +133,7 @@ function onTextChange() {
 		//}
 		//p.addClass('instance')
 		//p.attr('id',null)
-		p.move(0, offsetY)
+		p.move(0, offsetY + 20)
 		p.back()
 		let h, t, b
 		[h, t, b] = unpackFloatId(pId)
