@@ -3,10 +3,8 @@ YAML = require('yamljs')
 var rita = require('rita')
 
 // переменные
-
-const circle = SVG.select('#waterCircle')
-const circle2 = SVG.select('#waterCircle2')
-
+let circle
+let circle2
 var partsAvailable = []
 var floatSVG
 var draw = SVG('drawing')
@@ -30,7 +28,7 @@ function hashCode(str) {
   }
 
 function init(){
-	draw.size(5000, 5000)
+	draw.size('100vw', '100vh')
 	//var rect = draw.rect(400, 400).attr({ fill: '#f06' })
 	var ajax = new XMLHttpRequest()
 	ajax.open('GET', '../src/floats.svg', true)
@@ -59,13 +57,15 @@ function init(){
 
 		document.querySelector("input#float-value").addEventListener("input", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
 
+		onTextChange()
+		
 		document.querySelector("#SvgjsG1008").addEventListener("click", function () {
 			animate ();
 			
 			circle.attr({
 				rx: 0,
 				ry: 0,
-				opacity: 1
+				opacity: 0.3
 			})
 			
 			circle2.attr({
@@ -74,15 +74,8 @@ function init(){
 				opacity: 1
 			})
 		})
-
-		onTextChange()
 	}
 }
-
-// Set function onTextChange() to run on every text change. And run it for the first time.
-// Пока что работает по нажатию клавиши без учёта изменения слов. 
-// onTextChange()
-
 
 function onTextChange() {
   //var palette = ["#F04B40", "#B7C7B0", "#1D2F5A", "#F7E7CA"] // Палитра для окрашивания поплавков.
@@ -133,7 +126,7 @@ function onTextChange() {
 		//}
 		//p.addClass('instance')
 		//p.attr('id',null)
-		p.move(0, offsetY + 20)
+		p.move("30%", offsetY + 60)
 		p.back()
 		let h, t, b
 		[h, t, b] = unpackFloatId(pId)
@@ -141,6 +134,8 @@ function onTextChange() {
 		offsetY += h
 	})
 	
+	circle = SVG.select('#waterCircle')
+	circle2 = SVG.select('#waterCircle2')
 }
 
 
@@ -274,15 +269,15 @@ function animate () {
 		.animate(300, '>').move(0, 0)
 		.animate(300, '<>').rotate(0);
 	
-	// circle.animate(3000, '>', 0).attr({
-	// 	rx: 512,
-	// 	ry: 128,
-	// 	opacity: 0
-	//   })
+	circle.animate(1500, '>', 0).attr({
+		rx: 512,
+		ry: 128,
+		opacity: 0
+	  })
 		
-	// circle2.animate(3000, '>', 100).attr({
-	// 	rx: 512,
-	// 	ry: 128,
-	// 	opacity: 0
-	// })
+	circle2.animate(1500, '>', 150).attr({
+		rx: 512,
+		ry: 128,
+		opacity: 0
+	})
 }
