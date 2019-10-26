@@ -117,6 +117,7 @@ function onTextChange() {
 	//console.log(parts)
  	
 	var offsetY = 0
+	var floatCurrnet = draw.group()
 	parts.forEach(pId => {
 		let p = draw.use(pId)//.clone()
 		bobberGroup.add(p); // добавляю элементы в группу для анимации
@@ -133,7 +134,7 @@ function onTextChange() {
 		//console.log(h, t, b)
 		offsetY += h
 	})
-	
+
 	circle = SVG.select('#waterCircle')
 	circle2 = SVG.select('#waterCircle2')
 }
