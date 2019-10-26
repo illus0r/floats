@@ -114,7 +114,7 @@ function onTextChange() {
 	draw.select('use').hide()
 
 	// show needed parts
-	console.log(parts)
+	//console.log(parts)
  	
 	var offsetY = 0
 	parts.forEach(pId => {
@@ -130,7 +130,7 @@ function onTextChange() {
 		p.back()
 		let h, t, b
 		[h, t, b] = unpackFloatId(pId)
-		console.log(h, t, b)
+		//console.log(h, t, b)
 		offsetY += h
 	})
 	
@@ -155,9 +155,9 @@ function translateAndShow() {
 
 // Ivan's part, which determines the subset of parts and their order
 function compose(partsAvailable_=[], inputText="Hello"){
-	console.log(inputText)
+	//console.log(inputText)
 	let pseudoRandom = hashCode(inputText)
-	console.log(pseudoRandom)
+	//console.log(pseudoRandom)
 	// Every possible part of a float can be regarded as terminal token. Let's start with a list of such tokens:
   //  [ 16,  16,  40],
   //  [ 16, 256, 100],
@@ -184,22 +184,45 @@ function compose(partsAvailable_=[], inputText="Hello"){
 			unique.push(p);
 		}
 	});
-	console.log(partsAvailable_);
+	//console.log(partsAvailable_);
 	console.log(unique);
 
 	var str = `
+	<water>:
+	- <0_0>
+
 	<start>:
-	- <top> <middle> <bottom>
+	- <type1>
+	- <type2>
+	- <type3>
+	- <iceberg>
+	- <type4>
+	- <stick>
+	- <type5>
+	- <type6>
+	- <type7>
+	- <type8>
 
-	<top>:
-	- <0_8>
-
-	<middle>:
-	- <8_128> <0_0> <128_8>
-	- <8_128> <128_8> <0_0> <8_128> <128_8>
-
-	<bottom>:
-	- <8_0>
+	<type1>:
+	- <0_8> <8_8> <8_32> <water> <32_32> <32_8> <8_8> <8_0>
+	<type2>:
+	- <0_8> <8_8> <8_64> <water> <64_64> <64_8> <8_8> <8_0>
+	<type3>:
+	- <0_8> <8_8> <8_128> <water> <128_128> <128_8> <8_8> <8_0>
+	<iceberg>:
+	- <0_32> <water> <32_128> <128_8> <8_0>
+	<type4>:
+	- <0_64> <water> <64_128> <128_8> <8_0>
+	<stick>:
+	- <0_8> <8_8> <water> <8_8> <8_8> <8_0>
+	<type5>:
+	- <0_64> <64_128> <water> <128_128> <128_32> <32_8> <8_0>
+	<type6>:
+	- <0_32> <32_32> <water> <32_64> <64_8> <8_0>
+	<type7>:
+	- <0_64> <64_128> <water> <128_64> <64_8> <8_0>
+	<type8>:
+	- <0_32> <water> <64_32> <32_8> <8_0>
 	`
 
 	var rg = new RiGrammar(str);
@@ -207,17 +230,17 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	
 	for( let i = 0; i<partsStripped.length; i++){
     let p = partsStripped[i]
-		console.log(p)
+		//console.log(p)
 		var ui = unique.findIndex(u => u[0] == p[0] && u[1] == p[1]);
 		if(ui>=0){
 			rg.addRule('<'+unique[ui][0]+'_'+unique[ui][1]+'>', i.toString());
-			console.log('<'+unique[ui][0]+'_'+unique[ui][1]+'>', i.toString());
+			//console.log('<'+unique[ui][0]+'_'+unique[ui][1]+'>', i.toString());
 		}
 	}
 	var result = rg.expand();
-	console.log("result");
-	console.log();
-	console.log(rg);
+	//console.log("result");
+	//console.log();
+	//console.log(rg);
 	let parts = []
 	result.split(' ').map(Number).forEach(r => {
 		parts.push(partsAvailable_[r])
