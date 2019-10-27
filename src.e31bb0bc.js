@@ -46310,16 +46310,16 @@ function init() {
 
   ajax.onload = function (e) {
     floatSVG = draw.svg(ajax.responseText); //var defs = draw.defs()
-    //defs.add(SVG.select('#floatParts>g') )
+    //defs.add(SVG.select('#floats>g') )
     //floatSVG.scale(0, 0)
 
     floatSVG.move(0, 20); // hide background from Figma
 
-    _svgjs.default.select('#floatParts>rect, svg>rect').hide(); //console.log(SVG.select())
+    _svgjs.default.select('#floats>rect, svg>rect').hide(); //console.log(SVG.select())
     // Get the list of float's parts
 
 
-    var partsSVG = _svgjs.default.select('#floatParts>g');
+    var partsSVG = _svgjs.default.select('#floats>g');
 
     partsSVG.each(function (d) {
       var p = this.attr('id');
@@ -46462,7 +46462,7 @@ function compose() {
   }); //console.log(partsAvailable_);
 
   console.log(unique);
-  var str = "\n\t<water>:\n\t- <0_0>\n\n\t<start>:\n\t- <type1>\n\t- <type2>\n\t- <type3>\n\t- <iceberg>\n\t- <type4>\n\t- <stick>\n\t- <type5>\n\t- <type6>\n\t- <type7>\n\t- <type8>\n\n\t<type1>:\n\t- <0_8> <8_8> <8_32> <water> <32_32> <32_8> <8_8> <8_0>\n\t<type2>:\n\t- <0_8> <8_8> <8_64> <water> <64_64> <64_8> <8_8> <8_0>\n\t<type3>:\n\t- <0_8> <8_8> <8_128> <water> <128_128> <128_8> <8_8> <8_0>\n\t<iceberg>:\n\t- <0_32> <water> <32_128> <128_8> <8_0>\n\t<type4>:\n\t- <0_64> <water> <64_128> <128_8> <8_0>\n\t<stick>:\n\t- <0_8> <8_8> <water> <8_8> <8_8> <8_0>\n\t<type5>:\n\t- <0_64> <64_128> <water> <128_128> <128_32> <32_8> <8_0>\n\t<type6>:\n\t- <0_32> <32_32> <water> <32_64> <64_8> <8_0>\n\t<type7>:\n\t- <0_64> <64_128> <water> <128_64> <64_8> <8_0>\n\t<type8>:\n\t- <0_32> <water> <64_32> <32_8> <8_0>\n\t";
+  var str = "\n\t<water>:\n\t- <0_0>\n\n\t<start>:\n\t- <type1>\n\t- <type2>\n\t- <type3>\n\t- <iceberg>\n\t- <type4>\n\t- <stick>\n\t- <type5>\n\t- <type6>\n\t- <type7>\n\t- <type8>\n\n\t<type1>:\n\t- <0_8> <8_8> <8_32> <water> <32_32> <32_8> <8_8> <8_0>\n\t<type2>:\n\t- <0_8> <8_8> <8_64> <water> <64_64> <64_8> <8_8> <8_0>\n\t<type3>:\n\t- <0_8> <8_8> <8_128> <water> <128_128> <128_8> <8_8> <8_0>\n\t<iceberg>:\n\t- <0_32> <water> <32_128> <128_8> <8_0>\n\t<type4>:\n\t- <0_64> <water> <64_128> <128_8> <8_0>\n\t<stick>:\n\t- <0_8> <8_8> <water> <8_8> <8_8> <8_0>\n\t<type5>:\n\t- <0_64> <64_128> <water> <128_128> <128_32> <32_8> <8_0>\n\t<type6>:\n\t- <0_32> <32_32> <water> <32_64> <64_8> <8_0>\n\t<type7>:\n\t- <0_64> <64_128> <water> <128_64> <64_8> <8_0>\n\t<type8>:\n\t- <0_64> <water> <64_32> <32_8> <8_0>\n\t";
   var rg = new RiGrammar(str);
   RiTa.randomSeed(pseudoRandom);
 
@@ -46563,7 +46563,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49267" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50251" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

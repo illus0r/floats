@@ -36,16 +36,16 @@ function init(){
 	ajax.onload = function(e) {
 		floatSVG = draw.svg(ajax.responseText)
 		//var defs = draw.defs()
-		//defs.add(SVG.select('#floatParts>g') )
+		//defs.add(SVG.select('#floats>g') )
 		//floatSVG.scale(0, 0)
 		floatSVG.move(0,20)
 		
 		// hide background from Figma
-		SVG.select('#floatParts>rect, svg>rect').hide()
+		SVG.select('#floats>rect, svg>rect').hide()
 		//console.log(SVG.select())
 
 		// Get the list of float's parts
-		var partsSVG = SVG.select('#floatParts>g')
+		var partsSVG = SVG.select('#floats>g')
 		partsSVG.each(function(d) {
 			let p = this.attr('id')
 			partsAvailable.push(p)
@@ -223,7 +223,7 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	<type7>:
 	- <0_64> <64_128> <water> <128_64> <64_8> <8_0>
 	<type8>:
-	- <0_32> <water> <64_32> <32_8> <8_0>
+	- <0_64> <water> <64_32> <32_8> <8_0>
 	`
 
 	var rg = new RiGrammar(str);
