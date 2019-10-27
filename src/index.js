@@ -146,7 +146,7 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	<iceberg>:
 	- <dragonfly> <0_32> <water> <32_128> <128_8> <8_0>
 	<type4>:
-	- <dragonfly> <0_64> <water> <64_128> <128_8> <8_0>
+	- <dragonfly> <0_64> <water> <64_128> <128_128> <128_8> <8_0>
 	<type5>:
 	- <dragonfly> <0_64> <64_64> <64_64> <64_128> <water> <128_128> <128_32> <32_8>
 	<type6>:
