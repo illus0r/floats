@@ -198,7 +198,6 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	- <type3>
 	- <iceberg>
 	- <type4>
-	- <stick>
 	- <type5>
 	- <type6>
 	- <type7>
@@ -214,8 +213,6 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	- <0_32> <water> <32_128> <128_8> <8_0>
 	<type4>:
 	- <0_64> <water> <64_128> <128_8> <8_0>
-	<stick>:
-	- <0_8> <8_8> <water> <8_8> <8_8> <8_0>
 	<type5>:
 	- <0_64> <64_128> <water> <128_128> <128_32> <32_8> <8_0>
 	<type6>:
