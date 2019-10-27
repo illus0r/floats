@@ -28,7 +28,7 @@ function hashCode(str) {
   }
 
 function init(){
-	draw.size('100vw', '100vh')
+	draw.size('5000', '100vh')
 	//var rect = draw.rect(400, 400).attr({ fill: '#f06' })
 	var ajax = new XMLHttpRequest()
 	ajax.open('GET', '../src/floats.svg', true)
@@ -75,6 +75,7 @@ function init(){
 			})
 		})
 	}
+	bobberGroup.scale(0.5)
 }
 
 function onTextChange() {
@@ -99,7 +100,6 @@ function onTextChange() {
 	//console.log(partsAvailable)
 	
 	let text = document.getElementById("float-value").value
-	let parts = compose(partsAvailable, text)
 	//console.log("parts are")
 	//console.log(parts)
 	
@@ -112,31 +112,27 @@ function onTextChange() {
 
 	// hide all parts
 	draw.select('use').hide()
-
-	// show needed parts
-	console.log(parts)
  	
-	var offsetY = 0
-	var floatCurrnet = draw.group()
-	parts.forEach(pId => {
-		let p = draw.use(pId)//.clone()
-		bobberGroup.add(p); // добавляю элементы в группу для анимации
-		p.attr('opacity','1')
-		//if(p.visible()){
-			//console.log('oops! ' + p +' is visible')
-		//}
-		//p.addClass('instance')
-		//p.attr('id',null)
-		p.move("30%", offsetY + 60)
-		p.back()
-		let h, t, b
-		[h, t, b] = unpackFloatId(pId)
-		console.log(h, t, b)
-		offsetY += h
-	})
+	for( let i=0; i<100; i++ ){
+		let parts = compose(partsAvailable, text)
+		text += ' '
+		var offsetY = 0
+		var floatCurrnet = draw.group()
+		parts.forEach(pId => {
+			let p = draw.use(pId)//.clone()
+			bobberGroup.add(p); // добавляю элементы в группу для анимации
+			p.attr('opacity','1')
+			p.move(i*256, offsetY + 60)
+			p.back()
+			let h, t, b
+			[h, t, b] = unpackFloatId(pId)
+			console.log(h, t, b)
+			offsetY += h
+		})
+	}
 
-	circle = SVG.select('#waterCircle')
-	circle2 = SVG.select('#waterCircle2')
+	//circle = SVG.select('#waterCircle')
+	//circle2 = SVG.select('#waterCircle2')
 }
 
 
