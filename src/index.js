@@ -203,6 +203,10 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	- <type6>
 	- <type7>
 	- <type8>
+	- <type9>
+	- <type10>
+	- <type11>
+	- <type12>
 
 	<type1>:
 	- <0_8> <8_8> <8_32> <water> <32_32> <32_8> <8_8> <8_0>

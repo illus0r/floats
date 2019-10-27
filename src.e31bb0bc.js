@@ -46462,7 +46462,7 @@ function compose() {
   }); //console.log(partsAvailable_);
 
   console.log(unique);
-  var str = "\n\t<water>:\n\t- <0_0>\n\n\t<start>:\n\t- <type1>\n\t- <type2>\n\t- <type3>\n\t- <iceberg>\n\t- <type4>\n\t- <stick>\n\t- <type5>\n\t- <type6>\n\t- <type7>\n\t- <type8>\n\n\t<type1>:\n\t- <0_8> <8_8> <8_32> <water> <32_32> <32_8> <8_8> <8_0>\n\t<type2>:\n\t- <0_8> <8_8> <8_64> <water> <64_64> <64_8> <8_8> <8_0>\n\t<type3>:\n\t- <0_8> <8_8> <8_128> <water> <128_128> <128_8> <8_8> <8_0>\n\t<iceberg>:\n\t- <0_32> <water> <32_128> <128_8> <8_0>\n\t<type4>:\n\t- <0_64> <water> <64_128> <128_8> <8_0>\n\t<stick>:\n\t- <0_8> <8_8> <water> <8_8> <8_8> <8_0>\n\t<type5>:\n\t- <0_64> <64_128> <water> <128_128> <128_32> <32_8> <8_0>\n\t<type6>:\n\t- <0_32> <32_32> <water> <32_64> <64_8> <8_0>\n\t<type7>:\n\t- <0_64> <64_128> <water> <128_64> <64_8> <8_0>\n\t<type8>:\n\t- <0_64> <water> <64_32> <32_8> <8_0>\n\t<type9>:\n  - <0_64>\t<64_8> <8_32> <32_32>\t<32_128> <water> <128_64>\t<64_8> <8_0>\n  <type10>:\n  - <0_8> <8_8> <8_32> <32_128> <128_128> <water> <128_128> <128_128> <128_64>\t<64_8> <8_0>\n  <type11>:\n  - <0_8> <8_64> <64_64> <water> <64_64> <64_32> <32_8> <8_0>\n  <type12>:\n\t- <0_8> <8_8> <8_32> <32_32> <water> <32_32> <32_32> <32_8> <8_0>\n\t";
+  var str = "\n\t<water>:\n\t- <0_0>\n\n\t<start>:\n\t- <type1>\n\t- <type2>\n\t- <type3>\n\t- <iceberg>\n\t- <type4>\n\t- <stick>\n\t- <type5>\n\t- <type6>\n\t- <type7>\n\t- <type8>\n\t- <type9>\n\t- <type10>\n\t- <type11>\n\t- <type12>\n\n\t<type1>:\n\t- <0_8> <8_8> <8_32> <water> <32_32> <32_8> <8_8> <8_0>\n\t<type2>:\n\t- <0_8> <8_8> <8_64> <water> <64_64> <64_8> <8_8> <8_0>\n\t<type3>:\n\t- <0_8> <8_8> <8_128> <water> <128_128> <128_8> <8_8> <8_0>\n\t<iceberg>:\n\t- <0_32> <water> <32_128> <128_8> <8_0>\n\t<type4>:\n\t- <0_64> <water> <64_128> <128_8> <8_0>\n\t<stick>:\n\t- <0_8> <8_8> <water> <8_8> <8_8> <8_0>\n\t<type5>:\n\t- <0_64> <64_128> <water> <128_128> <128_32> <32_8> <8_0>\n\t<type6>:\n\t- <0_32> <32_32> <water> <32_64> <64_8> <8_0>\n\t<type7>:\n\t- <0_64> <64_128> <water> <128_64> <64_8> <8_0>\n\t<type8>:\n\t- <0_64> <water> <64_32> <32_8> <8_0>\n\t<type9>:\n  - <0_64>\t<64_8> <8_32> <32_32>\t<32_128> <water> <128_64>\t<64_8> <8_0>\n  <type10>:\n  - <0_8> <8_8> <8_32> <32_128> <128_128> <water> <128_128> <128_128> <128_64>\t<64_8> <8_0>\n  <type11>:\n  - <0_8> <8_64> <64_64> <water> <64_64> <64_32> <32_8> <8_0>\n  <type12>:\n\t- <0_8> <8_8> <8_32> <32_32> <water> <32_32> <32_32> <32_8> <8_0>\n\t";
   var rg = new RiGrammar(str);
   RiTa.randomSeed(pseudoRandom);
 
@@ -46563,7 +46563,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51040" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51117" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
