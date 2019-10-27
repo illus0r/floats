@@ -46310,16 +46310,16 @@ function init() {
 
   ajax.onload = function (e) {
     floatSVG = draw.svg(ajax.responseText); //var defs = draw.defs()
-    //defs.add(SVG.select('#floatParts>g') )
+    //defs.add(SVG.select('#floats>g') )
     //floatSVG.scale(0, 0)
 
     floatSVG.move(0, 20); // hide background from Figma
 
-    _svgjs.default.select('#floatParts>rect, svg>rect').hide(); //console.log(SVG.select())
+    _svgjs.default.select('#floats>rect, svg>rect').hide(); //console.log(SVG.select())
     // Get the list of float's parts
 
 
-    var partsSVG = _svgjs.default.select('#floatParts>g');
+    var partsSVG = _svgjs.default.select('#floats>g');
 
     partsSVG.each(function (d) {
       var p = this.attr('id');
@@ -46562,7 +46562,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55806" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53800" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

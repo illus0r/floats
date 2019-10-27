@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #9FC1F8;
 }
 
 svg svg {
@@ -20,9 +21,5 @@ input#float-value::placeholder {
   color: black;
   opacity: 0.5;
 }
-
-/* g {
-  display: none;
-} */
 
 /*# sourceMappingURL=/style.97fcb138.css.map */
