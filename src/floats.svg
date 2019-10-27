@@ -12,7 +12,11 @@
 </g>
 <g id="P-256-128-8">
 <ellipse id="Ellipse 68" cx="256" cy="256" rx="4" ry="1" fill="#202020"/>
-<path id="Vector 17" d="M320 -3.05176e-05C320 132 260 240 260 256L252 256C252 240 192 132.5 192 -6.40879e-05L320 -3.05176e-05Z" fill="#202020"/>
+<path id="Vector 17" d="M320 0C320 132 260 240 260 256L252 256C252 240 192 132.5 192 -3.35703e-05L320 0Z" fill="#202020"/>
+</g>
+<g id="p-256-8-8">
+<ellipse id="Ellipse 67" cx="256" cy="256" rx="4" ry="1" fill="#EF7181"/>
+<rect id="Rectangle 51" x="252" width="8" height="256" fill="#EF7181"/>
 </g>
 <g id="p-254-64-8">
 <path id="Vector 23" d="M255.999 256H256H256.001C260.001 256 263 256 264 254C266 249 288 31.9995 288 -0.000457764H224C224 31.9995 246 249 248 254C249 256 251.999 256 255.999 256Z" fill="#187169"/>
@@ -22,35 +26,42 @@
 <ellipse id="Ellipse 68_2" cx="256" cy="254" rx="32" ry="8" fill="#187169"/>
 <path id="Vector 22" d="M255.999 -1.99982H256H256.001C260.001 -1.99982 263 -1.99982 264 0.000183344C266 5 288 222 288 254H224C224 222 246 5.00002 248 0.000183344C249 -1.99982 251.999 -1.99982 255.999 -1.99982Z" fill="#187169"/>
 </g>
-<g id="p-256-8-8">
-<ellipse id="Ellipse 67" cx="256" cy="256" rx="4" ry="1" fill="#EF7181"/>
-<rect id="Rectangle 51" x="252" width="8" height="256" fill="#EF7181"/>
+<g id="p-128-128-64">
+<ellipse id="Ellipse 66" cx="256" cy="128" rx="32" ry="8" fill="#8E4D3C"/>
+<path id="Vector 28" d="M192 48L192 0H320L320 48C320 64 288 64 288 80V128H224V80C224 64 192 64 192 48Z" fill="#8E4D3C"/>
+<ellipse id="Ellipse 68_3" cx="256" rx="64" ry="16" fill="#8E4D3C"/>
 </g>
 <g id="p-128-128-32">
 <ellipse id="Ellipse 65" cx="256" cy="128" rx="16" ry="4" fill="#92C091"/>
 <path id="Vector 21" d="M272 128C272 96 320 48 320 -1.52588e-05L192 -4.06867e-06C192 48 240 96 240 128L272 128Z" fill="#92C091"/>
 </g>
 <g id="p-128-128-8">
-<ellipse id="Ellipse 68_3" cx="256" cy="128" rx="4" ry="1" fill="#EDDBBC"/>
+<ellipse id="Ellipse 68_4" cx="256" cy="128" rx="4" ry="1" fill="#EDDBBC"/>
 <path id="Vector 3" d="M192 0C192 58.6404 252 82.2069 252 128H260C260 82.2069 320 59.2709 320 0H192Z" fill="#EDDBBC"/>
 </g>
-<g id="p-128-64-32">
-<ellipse id="Ellipse 73" cx="256" cy="128" rx="16" ry="4" transform="rotate(-180 256 128)" fill="#C4C4C4"/>
-<path id="Vector 20" d="M288 0C288 48 272 80 272 128L240 128C240 80 224 48 224 -5.59506e-06L288 0Z" fill="#C4C4C4"/>
-<ellipse id="Ellipse 72" cx="256" cy="-2.79753e-06" rx="32" ry="8" transform="rotate(-180 256 -2.79753e-06)" fill="#C4C4C4"/>
+<g id="p-128-64-128">
+<ellipse id="Ellipse 68_5" cx="256" cy="128" rx="64" ry="16" fill="#E1CA52"/>
+<path id="Vector 25" d="M192 128C192 96 224 80 224 0H288C288 80 320 96 320 128H192Z" fill="#E1CA52"/>
+<ellipse id="Ellipse 69_2" cx="256" rx="32" ry="8" fill="#E1CA52"/>
 </g>
-<g id="p-64-64-8">
-<ellipse id="Ellipse 68_4" cx="256" cy="64" rx="4" ry="1" fill="#ED6856"/>
-<path id="Vector 19" d="M252 64C252 32 224 56 224 0H288C288 56 260 32 260 64H252Z" fill="#ED6856"/>
+<g id="p-128-64-32">
+<ellipse id="Ellipse 73" cx="256" cy="128" rx="16" ry="4" transform="rotate(-180 256 128)" fill="#CAD1D6"/>
+<path id="Vector 20" d="M288 0C288 48 272 80 272 128L240 128C240 80 224 48 224 -5.59506e-06L288 0Z" fill="#CAD1D6"/>
+<ellipse id="Ellipse 72" cx="256" cy="-2.79753e-06" rx="32" ry="8" transform="rotate(-180 256 -2.79753e-06)" fill="#CAD1D6"/>
 </g>
 <g id="p-128-32-64">
-<ellipse id="Ellipse 69_2" cx="256" cy="128" rx="32" ry="8" fill="#C4C4C4"/>
-<path id="Vector 18" d="M224 128C224 80 240 48 240 0H272C272 48 288 80 288 128H224Z" fill="#C4C4C4"/>
-<ellipse id="Ellipse 68_5" cx="256" rx="16" ry="4" fill="#C4C4C4"/>
+<ellipse id="Ellipse 69_3" cx="256" cy="128" rx="32" ry="8" fill="#CAD1D6"/>
+<path id="Vector 18" d="M224 128C224 80 240 48 240 0H272C272 48 288 80 288 128H224Z" fill="#CAD1D6"/>
+<ellipse id="Ellipse 68_6" cx="256" rx="16" ry="4" fill="#CAD1D6"/>
 </g>
 <g id="p-128-32-8">
-<ellipse id="Ellipse 67_2" cx="256" cy="128" rx="4" ry="1" fill="#ED6856"/>
-<path id="Vector 19_2" d="M252 128C252 64 240 128 240 0H272C272 128 260 64 260 128H252Z" fill="#ED6856"/>
+<ellipse id="Ellipse 67_2" cx="256" cy="128" rx="4" ry="1" fill="#E1CA52"/>
+<path id="Vector 19" d="M252 128C252 64 240 128 240 0H272C272 128 260 64 260 128H252Z" fill="#E1CA52"/>
+</g>
+<g id="p-128-8-128">
+<ellipse id="Ellipse 68_7" cx="256" cy="128" rx="64" ry="16" fill="#EDDBBC"/>
+<path id="Vector 17_2" d="M192 128C192 112 252 120 252 0H260C260 120 320 112 320 128H192Z" fill="#EDDBBC"/>
+<ellipse id="Ellipse 69_4" cx="256" rx="4" ry="1" fill="#EDDBBC"/>
 </g>
 <g id="p-128-8-32">
 <ellipse id="Ellipse 65_2" cx="256" cy="128" rx="16" ry="4" fill="#ED6856"/>
@@ -61,19 +72,19 @@
 <rect id="Rectangle 10" x="252" width="8" height="128" fill="#AAD564"/>
 </g>
 <g id="p-112-64-32">
-<ellipse id="Ellipse 75" cx="256" cy="112" rx="16" ry="4" transform="rotate(-180 256 112)" fill="#C4C4C4"/>
-<path id="Vector 21_2" d="M288 0C288 112 272 56 272 112L240 112C240 56 224 112 224 -5.59506e-06L288 0Z" fill="#C4C4C4"/>
-<ellipse id="Ellipse 74" cx="256" cy="-2.79753e-06" rx="32" ry="8" transform="rotate(-180 256 -2.79753e-06)" fill="#C4C4C4"/>
+<ellipse id="Ellipse 75" cx="256" cy="112" rx="16" ry="4" transform="rotate(-180 256 112)" fill="#CAD1D6"/>
+<path id="Vector 21_2" d="M288 0C288 112 272 56 272 112L240 112C240 56 224 112 224 -5.59506e-06L288 0Z" fill="#CAD1D6"/>
+<ellipse id="Ellipse 74" cx="256" cy="-2.79753e-06" rx="32" ry="8" transform="rotate(-180 256 -2.79753e-06)" fill="#CAD1D6"/>
 </g>
 <g id="p-112-32-64">
-<ellipse id="Ellipse 70" cx="256" cy="112" rx="32" ry="8" fill="#C4C4C4"/>
-<path id="Vector 19_3" d="M224 112C224 0 240 56 240 0H272C272 56 288 0 288 112H224Z" fill="#C4C4C4"/>
-<ellipse id="Ellipse 71" cx="256" rx="16" ry="4" fill="#C4C4C4"/>
+<ellipse id="Ellipse 70" cx="256" cy="112" rx="32" ry="8" fill="#CAD1D6"/>
+<path id="Vector 19_2" d="M224 112C224 0 240 56 240 0H272C272 56 288 0 288 112H224Z" fill="#CAD1D6"/>
+<ellipse id="Ellipse 71" cx="256" rx="16" ry="4" fill="#CAD1D6"/>
 </g>
-<g id="p-128-8-128">
-<ellipse id="Ellipse 68_6" cx="256" cy="128" rx="64" ry="16" fill="#EDDBBC"/>
-<path id="Vector 17_2" d="M192 128C192 112 252 120 252 0H260C260 120 320 112 320 128H192Z" fill="#EDDBBC"/>
-<ellipse id="Ellipse 69_3" cx="256" rx="4" ry="1" fill="#EDDBBC"/>
+<g id="p-96-128-32">
+<path id="Ellipse 69_5" d="M272 96C272 98.2091 264.837 100 256 100C247.163 100 240 98.2091 240 96C240 93.7909 247.163 92 256 92C264.837 92 272 93.7909 272 96Z" fill="#E1CA52"/>
+<path id="Vector 27" d="M243.5 98.5C241.5 98 192 80 192 0H320C320 80 270.5 98 268.5 98.5H243.5Z" fill="#E1CA52"/>
+<ellipse id="Ellipse 68_8" cx="256" rx="64" ry="16" fill="#E1CA52"/>
 </g>
 <g id="p-96-32-128">
 <ellipse id="Ellipse 64" cx="256" cy="96" rx="64" ry="16" fill="#ED6856"/>
@@ -84,12 +95,16 @@
 <path id="Vector 2_2" d="M192 96C192 49.5 252 42 252 0H260C260 42 320 49.5 320 96H192Z" fill="#ED6856"/>
 </g>
 <g id="p-64-128-64">
-<ellipse id="Ellipse 66" cx="256" cy="64" rx="32" ry="8" fill="#92C091"/>
-<path id="Vector 21_3" d="M288 64C288 44.8 320 44.8 320 1.14441e-05L192 2.53976e-07C192 44.8 224 44.8 224 64L288 64Z" fill="#92C091"/>
+<ellipse id="Ellipse 66_2" cx="256" cy="64" rx="32" ry="8" fill="#187169"/>
+<path id="Vector 21_3" d="M288 64C288 44.8 320 44.8 320 4.19617e-05L192 3.07716e-05C192 44.8 224 44.8 224 64L288 64Z" fill="#187169"/>
 </g>
 <g id="p-64-64-32">
 <ellipse id="Ellipse 65_3" cx="256" cy="64" rx="16" ry="4" fill="#DE9C46"/>
 <path id="Vector 23_2" d="M288 0L272 64H240L224 0H288Z" fill="#DE9C46"/>
+</g>
+<g id="p-64-64-8">
+<ellipse id="Ellipse 68_9" cx="256" cy="64" rx="4" ry="1" fill="#ED6856"/>
+<path id="Vector 19_3" d="M252 64C252 32 224 56 224 0H288C288 56 260 32 260 64H252Z" fill="#ED6856"/>
 </g>
 <g id="p-64-32-32">
 <ellipse id="Ellipse 65_4" cx="256" cy="64" rx="16" ry="4" fill="#187169"/>
@@ -106,20 +121,34 @@
 <ellipse id="Ellipse 64_3" cx="256" cy="62" rx="64" ry="16" fill="#ED6856"/>
 <path id="Ellipse 49" d="M320 62C320 53.5954 318.345 45.2731 315.128 37.5083C311.912 29.7434 307.198 22.6881 301.255 16.7452C295.312 10.8022 288.257 6.08801 280.492 2.87171C272.727 -0.344592 264.405 -2 256 -2C247.595 -2 239.273 -0.34459 231.508 2.87171C223.743 6.08801 216.688 10.8022 210.745 16.7452C204.802 22.6881 200.088 29.7434 196.872 37.5083C193.655 45.2731 192 53.5954 192 62L320 62Z" fill="#ED6856"/>
 </g>
+<g id="p-48-128-128">
+<ellipse id="Ellipse 64_4" cx="256" cy="48" rx="64" ry="16" fill="#EDDBBC"/>
+<rect id="Rectangle 49" x="192" width="128" height="48" fill="#EDDBBC"/>
+</g>
+<g id="p-48-32-8">
+<ellipse id="Ellipse 67_5" cx="256" cy="48" rx="4" ry="1" fill="#83527B"/>
+<path id="Vector 29" d="M252 48C252 40 240 32 240 0H272C272 32 260 40 260 48H252Z" fill="#83527B"/>
+<ellipse id="Ellipse 69_6" cx="256" rx="16" ry="4" fill="#83527B"/>
+</g>
 <g id="p-32-128-128">
-<ellipse id="Ellipse 64_4" cx="256" cy="32" rx="64" ry="16" fill="#EF7181"/>
+<ellipse id="Ellipse 64_5" cx="256" cy="32" rx="64" ry="16" fill="#EF7181"/>
 <rect id="Rectangle 48" x="192" width="128" height="32" fill="#EF7181"/>
 </g>
+<g id="p-32-128-8">
+<ellipse id="Ellipse 68_10" cx="256" cy="32" rx="4" ry="1" fill="#8E4D3C"/>
+<path id="Vector 26" d="M252 32C252 16 192 24 192 0H320C320 24 260 16 260 32H252Z" fill="#8E4D3C"/>
+<ellipse id="Ellipse 69_7" cx="256" rx="64" ry="16" fill="#8E4D3C"/>
+</g>
 <g id="p-32-64-128">
-<ellipse id="Ellipse 64_5" cx="256" cy="32" rx="64" ry="16" fill="#92C091"/>
+<ellipse id="Ellipse 64_6" cx="256" cy="32" rx="64" ry="16" fill="#92C091"/>
 <path id="Vector 21_4" d="M224 0C224 9.6 192 9.6 192 32H320C320 9.6 288 9.6 288 0H224Z" fill="#92C091"/>
 </g>
 <g id="p-32-64-64">
-<ellipse id="Ellipse 66_2" cx="256" cy="32" rx="32" ry="8" fill="#DE9C46"/>
+<ellipse id="Ellipse 66_3" cx="256" cy="32" rx="32" ry="8" fill="#DE9C46"/>
 <rect id="Rectangle 50" x="224" width="64" height="32" fill="#DE9C46"/>
 </g>
 <g id="p-32-32-128">
-<ellipse id="Ellipse 64_6" cx="256" cy="32" rx="64" ry="16" fill="#92C091"/>
+<ellipse id="Ellipse 64_7" cx="256" cy="32" rx="64" ry="16" fill="#92C091"/>
 <path id="Vector 21_5" d="M240 0C240 16 192 6 192 32H320C320 6 272 16 272 0H240Z" fill="#92C091"/>
 </g>
 <g id="p-32-32-32">
@@ -127,7 +156,7 @@
 <rect id="Rectangle 46" x="240" width="32" height="32" fill="#8E4D3C"/>
 </g>
 <g id="p-32-8-64">
-<ellipse id="Ellipse 66_3" cx="256" cy="32" rx="32" ry="8" fill="#ED6856"/>
+<ellipse id="Ellipse 66_4" cx="256" cy="32" rx="32" ry="8" fill="#ED6856"/>
 <path id="Vector 8" d="M224 32C224 16.9057 252 9.0566 251.999 0H259.999C259.999 9.0566 288 16.9057 288 32H224Z" fill="#ED6856"/>
 </g>
 <g id="p-32-8-8">
@@ -135,13 +164,9 @@
 <rect id="Rectangle 10_2" x="252" width="8" height="32" fill="#E1CA52"/>
 </g>
 <g id="p-16-128-128">
-<ellipse id="Ellipse 64_7" cx="256" cy="16" rx="64" ry="16" fill="#EDDBBC"/>
-<rect id="Rectangle 49" x="192" width="128" height="16" fill="#EDDBBC"/>
-</g>
-<g id="p-16-128-128_2">
-<ellipse id="Ellipse 68_7" cx="256" cy="16" rx="64" ry="16" fill="#187169"/>
+<ellipse id="Ellipse 68_11" cx="256" cy="16" rx="64" ry="16" fill="#187169"/>
 <rect id="Rectangle 52" x="192" width="128" height="16" fill="#187169"/>
-<ellipse id="Ellipse 69_4" cx="256" rx="64" ry="16" fill="#187169"/>
+<ellipse id="Ellipse 69_8" cx="256" rx="64" ry="16" fill="#187169"/>
 <g id="Group 9">
 <path id="K" d="M298.523 24.395L299.62 24.0856V21.0856L300.995 19.366L303.975 22.8576L305.361 22.4667L301.746 18.3742L305.222 13.9378L303.801 14.3384L299.62 19.7896V15.5176L298.523 15.827V24.395Z" fill="#CAD1D6"/>
 <path id="R" d="M290.134 25.9939L291.255 25.7862V22.1262L293.992 21.6188C295.078 21.4176 295.267 22.1026 295.396 22.9066C295.562 23.716 295.385 24.6728 295.703 24.9617L296.954 24.7299C296.482 24.2414 296.517 23.2748 296.458 22.4578C296.364 21.6473 296.175 20.9382 295.196 20.9278V20.9038C296.222 20.4255 296.659 19.5046 296.659 18.4606C296.659 17.0806 295.691 16.3959 294.099 16.6911L290.134 17.4259V25.9939ZM291.255 21.1662V18.1782L294.04 17.6621C295.09 17.4674 295.538 17.9963 295.538 18.8483C295.538 20.0963 294.629 20.5407 293.591 20.7332L291.255 21.1662Z" fill="#CAD1D6"/>
@@ -159,26 +184,26 @@
 </g>
 </g>
 <g id="p-16-64-64">
-<ellipse id="Ellipse 66_4" cx="256" cy="16" rx="32" ry="8" fill="#AAD564"/>
+<ellipse id="Ellipse 66_5" cx="256" cy="16" rx="32" ry="8" fill="#AAD564"/>
 <rect id="Rectangle 47" x="224" width="64" height="16" fill="#AAD564"/>
 </g>
 <g id="p-4-128-128">
-<ellipse id="Ellipse 69_5" cx="256" cy="4" rx="64" ry="16" fill="#202020"/>
+<ellipse id="Ellipse 69_9" cx="256" cy="4" rx="64" ry="16" fill="#202020"/>
 <rect id="Rectangle 33" x="192" width="128" height="4" fill="#202020"/>
 </g>
 <g id="p-4-64-64">
-<ellipse id="Ellipse 66_5" cx="256" cy="4" rx="32" ry="8" fill="#202020"/>
+<ellipse id="Ellipse 66_6" cx="256" cy="4" rx="32" ry="8" fill="#202020"/>
 <rect id="Rectangle 34" x="224" width="64" height="4" fill="#202020"/>
 </g>
 <g id="p-4-32-32">
-<path id="Ellipse 66_6" d="M240 4C240 5.06087 241.686 6.07828 244.686 6.82843C247.687 7.57857 251.757 8 256 8C260.243 8 264.313 7.57857 267.314 6.82843C270.314 6.07828 272 5.06087 272 4L240 4Z" fill="#202020"/>
 <rect id="Rectangle 35" x="240" width="32" height="4" fill="#202020"/>
+<ellipse id="Ellipse 67_6" cx="256" cy="4" rx="16" ry="4" fill="#202020"/>
 </g>
 <g id="p-4-8-8">
-<ellipse id="Ellipse 68_8" cx="256" cy="4" rx="4" ry="1" fill="#202020"/>
+<ellipse id="Ellipse 68_12" cx="256" cy="4" rx="4" ry="1" fill="#202020"/>
 <rect id="Rectangle 36" x="252" width="8" height="4" fill="#202020"/>
 </g>
-<g id="p-156-0-64">
+<g id="p-158-0-64">
 <ellipse id="Ellipse 85" cx="256" cy="156" rx="32" ry="8" fill="#ED6856"/>
 <path id="Ellipse 84" d="M288 156C288 151.798 287.172 147.637 285.564 143.754C283.956 139.872 281.599 136.344 278.627 133.373C275.656 130.401 272.128 128.044 268.246 126.436C264.363 124.828 260.202 124 256 124C251.798 124 247.637 124.828 243.754 126.436C239.872 128.044 236.344 130.401 233.373 133.373C230.401 136.344 228.044 139.872 226.436 143.754C224.828 147.637 224 151.798 224 156L256 156H288Z" fill="#ED6856"/>
 <g id="Group 1">
@@ -235,22 +260,22 @@
 </g>
 </g>
 <g id="p-132-0-8">
-<ellipse id="Ellipse 67_5" cx="256" cy="132" rx="4" ry="1" fill="#EF7181"/>
-<rect id="Rectangle 26" x="260" y="132" width="8" height="128" transform="rotate(-180 260 132)" fill="#EF7181"/>
-<path id="Ellipse 40" d="M260 4C260 2.93913 259.579 1.92172 258.828 1.17157C258.078 0.421429 257.061 9.09378e-07 256 3.65565e-07C254.939 -1.78247e-07 253.922 0.421426 253.172 1.17157C252.421 1.92172 252 2.93913 252 4L260 4Z" fill="#EF7181"/>
-</g>
-<g id="p-80-0-8">
-<ellipse id="Ellipse 68_9" cx="256" cy="80" rx="4" ry="1" fill="#ED6856"/>
-<path id="Vector 10_2" d="M240 33.8028C240 14.6479 247 0 256 0C265 0 272 14.6479 272 33.8028C272 72.4706 260 76.2353 260 80H252C252 76.2353 240 72 240 33.8028Z" fill="#ED6856"/>
+<ellipse id="Ellipse 67_7" cx="256" cy="132" rx="4" ry="1" fill="#EB5757"/>
+<rect id="Rectangle 26" x="260" y="132" width="8" height="128" transform="rotate(-180 260 132)" fill="#EB5757"/>
+<path id="Ellipse 40" d="M260 4.00006C260 2.9392 259.579 1.92178 258.828 1.17164C258.078 0.42149 257.061 6.19445e-05 256 6.14007e-05C254.939 6.08569e-05 253.922 0.421487 253.172 1.17163C252.421 1.92178 252 2.93919 252 4.00006L260 4.00006Z" fill="#EB5757"/>
 </g>
 <g id="p-36-0-8">
-<ellipse id="Ellipse 68_10" cx="256" cy="36" rx="4" ry="1" fill="#ED6856"/>
-<rect id="Rectangle 24" x="260" y="36" width="8" height="32" transform="rotate(-180 260 36)" fill="#ED6856"/>
-<path id="Ellipse 38" d="M260 4C260 2.93913 259.579 1.92172 258.828 1.17157C258.078 0.421429 257.061 9.09378e-07 256 3.65565e-07C254.939 -1.78247e-07 253.922 0.421426 253.172 1.17157C252.421 1.92172 252 2.93913 252 4L260 4Z" fill="#ED6856"/>
+<ellipse id="Ellipse 68_13" cx="256" cy="36" rx="4" ry="1" fill="#EB5757"/>
+<rect id="Rectangle 24" x="260" y="36" width="8" height="32" transform="rotate(-180 260 36)" fill="#EB5757"/>
+<path id="Ellipse 38" d="M260 4.00006C260 2.9392 259.579 1.92178 258.828 1.17164C258.078 0.42149 257.061 6.19445e-05 256 6.14007e-05C254.939 6.08569e-05 253.922 0.421487 253.172 1.17163C252.421 1.92178 252 2.93919 252 4.00006L260 4.00006Z" fill="#EB5757"/>
 </g>
 <g id="p-16-0-32">
-<ellipse id="Ellipse 65_6" cx="256" cy="16" rx="16" ry="4" fill="#ED6856"/>
-<path id="Ellipse 69_6" d="M272 16C272 11.7565 270.314 7.68687 267.314 4.68629C264.313 1.68571 260.243 3.20373e-07 256 0C251.757 -3.20373e-07 247.687 1.68571 244.686 4.68629C241.686 7.68687 240 11.7565 240 16L272 16Z" fill="#ED6856"/>
+<ellipse id="Ellipse 65_6" cx="256" cy="16" rx="16" ry="4" fill="#EB5757"/>
+<path id="Ellipse 69_10" d="M272 16C272 11.7565 270.314 7.68687 267.314 4.68629C264.313 1.68571 260.243 3.20373e-07 256 0C251.757 -3.20373e-07 247.687 1.68571 244.686 4.68629C241.686 7.68687 240 11.7565 240 16L272 16Z" fill="#EB5757"/>
+</g>
+<g id="p-80-0-8">
+<ellipse id="Ellipse 68_14" cx="256" cy="80" rx="4" ry="1" fill="#EB5757"/>
+<path id="Vector 10_2" d="M246 32C246 6 248.5 0 256 0C263.5 0 266 6 266 32C266 48 260 64 260 80H252C252 64 246 48 246 32Z" fill="#EB5757"/>
 </g>
 </g>
 <defs>
