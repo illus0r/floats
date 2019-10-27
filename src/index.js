@@ -28,7 +28,7 @@ function hashCode(str) {
   }
 
 function init(){
-	draw.size('5000', '100vh')
+	draw.size('6000', '2000')
 	//var rect = draw.rect(400, 400).attr({ fill: '#f06' })
 	var ajax = new XMLHttpRequest()
 	ajax.open('GET', '../src/floats.svg', true)
@@ -113,22 +113,24 @@ function onTextChange() {
 	// hide all parts
 	draw.select('use').hide()
  	
-	for( let i=0; i<100; i++ ){
+	var offsetY = 0
+	for( let i=0; i<250; i++ ){
+		if(i%5==0) {offsetY = Math.random()*400-400}
 		let parts = compose(partsAvailable, text)
 		text += ' '
-		var offsetY = 0
 		var floatCurrnet = draw.group()
 		parts.forEach(pId => {
 			let p = draw.use(pId)//.clone()
 			bobberGroup.add(p); // добавляю элементы в группу для анимации
 			p.attr('opacity','1')
-			p.move(i*256, offsetY + 60)
+			p.move((Math.floor(i/5))*256, offsetY + 60)
 			p.back()
 			let h, t, b
 			[h, t, b] = unpackFloatId(pId)
 			console.log(h, t, b)
 			offsetY += h
 		})
+		offsetY += 100
 	}
 
 	//circle = SVG.select('#waterCircle')
