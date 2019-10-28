@@ -33,7 +33,7 @@ function init(){
 	ajax.send()
 	ajax.onload = function(e) {
 		floatSVG = draw.svg(ajax.responseText)
-		floatSVG.move(0,20)
+		//floatSVG.move(0,20)
 		
 		// hide background from Figma
 		SVG.select('#floats>rect, svg>rect').hide()
@@ -87,13 +87,16 @@ function onTextChange() {
 		let p = draw.use(pId)//.clone()
 		bobberGroup.add(p); // добавляю элементы в группу для анимации
 		p.attr('opacity','1')
-		p.move("30%", offsetY + 60)
+		p.move("-256", offsetY)
 		p.back()
 		let h, t, b
 		[h, t, b] = unpackFloatId(pId)
 		console.log(h, t, b)
 		offsetY += h
 	})
+
+	draw.viewbox(-128, -offsetY*.05, 256, offsetY+offsetY*.1)
+	//draw.rect(512, offsetY).attr('fill','red').move(-256, 0)
 
 	circle = SVG.select('#waterCircle')
 	circle2 = SVG.select('#waterCircle2')

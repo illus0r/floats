@@ -46307,8 +46307,8 @@ function init() {
   ajax.send();
 
   ajax.onload = function (e) {
-    floatSVG = draw.svg(ajax.responseText);
-    floatSVG.move(0, 20); // hide background from Figma
+    floatSVG = draw.svg(ajax.responseText); //floatSVG.move(0,20)
+    // hide background from Figma
 
     _svgjs.default.select('#floats>rect, svg>rect').hide(); //console.log(SVG.select())
     // Get the list of float's parts
@@ -46355,7 +46355,7 @@ function onTextChange() {
     bobberGroup.add(p); // добавляю элементы в группу для анимации
 
     p.attr('opacity', '1');
-    p.move("30%", offsetY + 60);
+    p.move("-256", offsetY);
     p.back();
     var h, t, b;
 
@@ -46369,6 +46369,8 @@ function onTextChange() {
     console.log(h, t, b);
     offsetY += h;
   });
+  draw.viewbox(-128, -offsetY * .05, 256, offsetY + offsetY * .1); //draw.rect(512, offsetY).attr('fill','red').move(-256, 0)
+
   circle = _svgjs.default.select('#waterCircle');
   circle2 = _svgjs.default.select('#waterCircle2');
 } // Ivan's part, which determines the subset of parts and their order
@@ -46473,7 +46475,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51422" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61988" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
