@@ -42,7 +42,6 @@ function init(){
 		
 		// hide background from Figma
 		SVG.select('#floats>rect, svg>rect').hide()
-		//console.log(SVG.select())
 
 		// Get the list of float's parts
 		var partsSVG = SVG.select('#floats>g')
@@ -50,8 +49,6 @@ function init(){
 			let p = this.attr('id')
 			partsAvailable.push(p)
 		})
-		//console.log("partsAvailable are init")
-		//console.log(partsAvailable)
 
 		// Binding events listeners
 
@@ -75,7 +72,6 @@ function init(){
 			})
 		})
 	}
-	bobberGroup.scale(0.5)
 }
 
 function onTextChange() {
@@ -96,17 +92,14 @@ function onTextChange() {
     //fill: pickFromPalette3,
    //'fill-opacity': 1})
 	//
-	//console.log("partsAvailable are")
-	//console.log(partsAvailable)
 	
 	let text = document.getElementById("float-value").value
-	//console.log("parts are")
-	//console.log(parts)
+	bobberGroup.scale(10/(text.length+10))
+	bobberGroup.move(0,0)
+	console.log(3/text.length)
 	
 	//delete all clones
 	//SVG.select('.clone').remove()
-	//console.log('clonekilling')
-	//console.log(SVG.select('.clone'))
 	//SVG.select('g.clone').replace(' ')
 	//SVG.select('g.instance').remove()
 
@@ -127,7 +120,6 @@ function onTextChange() {
 			p.back()
 			let h, t, b
 			[h, t, b] = unpackFloatId(pId)
-			console.log(h, t, b)
 			offsetY += h
 		})
 		offsetY += 100
@@ -154,9 +146,7 @@ function translateAndShow() {
 
 // Ivan's part, which determines the subset of parts and their order
 function compose(partsAvailable_=[], inputText="Hello"){
-	console.log(inputText)
 	let pseudoRandom = hashCode(inputText)
-	console.log(pseudoRandom)
 	// Every possible part of a float can be regarded as terminal token. Let's start with a list of such tokens:
   //  [ 16,  16,  40],
   //  [ 16, 256, 100],
@@ -183,8 +173,6 @@ function compose(partsAvailable_=[], inputText="Hello"){
 			unique.push(p);
 		}
 	});
-	console.log(partsAvailable_);
-	console.log(unique);
 
 	var str = `
 	<water>:
@@ -244,17 +232,12 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	
 	for( let i = 0; i<partsStripped.length; i++){
     let p = partsStripped[i]
-		console.log(p)
 		var ui = unique.findIndex(u => u[0] == p[0] && u[1] == p[1]);
 		if(ui>=0){
 			rg.addRule('<'+unique[ui][0]+'_'+unique[ui][1]+'>', i.toString());
-			console.log('<'+unique[ui][0]+'_'+unique[ui][1]+'>', i.toString());
 		}
 	}
 	var result = rg.expand();
-	console.log("result");
-	console.log();
-	console.log(rg);
 	let parts = []
 	result.split(' ').map(Number).forEach(r => {
 		parts.push(partsAvailable_[r])
