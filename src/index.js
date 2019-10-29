@@ -10,6 +10,7 @@ var partsAvailable = []
 var floatSVG
 var draw = SVG('drawing')
 let bobberGroup = draw.group()
+let bobberOuterGroup = draw.group()
 let bobberSet = draw.set()
 
 
@@ -96,6 +97,7 @@ function onTextChange() {
 
 	circle3.hide()
 	setTimeout(function(){circle3.show()}, 100)
+	bobberOuterGroup.add(bobberGroup)
 }
 
 
@@ -237,7 +239,7 @@ function animate () {
 }
 
 function idleAnimation () {
-	bobberSet
+	bobberOuterGroup
 		.animate(800, '<>').dmove(0, 10)
 		.animate(800, '<>').dmove(0, -10)
 		.after(idleAnimation)
