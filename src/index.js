@@ -5,10 +5,12 @@ var rita = require('rita')
 // переменные
 let circle
 let circle2
+let circle3
 var partsAvailable = []
 var floatSVG
 var draw = SVG('drawing')
 let bobberGroup = draw.group()
+let bobberSet = draw.set()
 
 
 init()
@@ -51,22 +53,10 @@ function init(){
 		document.querySelector("input#float-value").addEventListener("input", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
 
 		onTextChange()
-		
-		document.querySelector("#SvgjsG1008").addEventListener("click", function () {
-			animate ();
-			
-			circle.attr({
-				rx: 0,
-				ry: 0,
-				opacity: 0.3
-			})
-			
-			circle2.attr({
-				rx: 0,
-				ry: 0,
-				opacity: 1
-			})
-		})
+		idleAnimation()
+		idleAnimationCircle()
+
+		bobberGroup.click(animate)
 	}
 }
 
@@ -83,9 +73,11 @@ function onTextChange() {
  	
 	var offsetY = 0
 	var floatCurrnet = draw.group()
+	bobberSet.clear(); // очищает сет перед новым вводом текста
 	parts.forEach(pId => {
 		let p = draw.use(pId)//.clone()
 		bobberGroup.add(p); // добавляю элементы в группу для анимации
+		bobberSet.add(p); // добавляю элементы в сет
 		p.attr('opacity','1')
 		p.move("-256", offsetY)
 		p.back()
@@ -100,6 +92,10 @@ function onTextChange() {
 
 	circle = SVG.select('#waterCircle')
 	circle2 = SVG.select('#waterCircle2')
+	circle3 = SVG.select('#waterCircle3')
+
+	circle3.hide()
+	setTimeout(function(){circle3.show()}, 100)
 }
 
 
@@ -203,23 +199,61 @@ function compose(partsAvailable_=[], inputText="Hello"){
 }
 
 function animate () {
+	circle3.hide()
+
 	bobberGroup
-		.animate(100, '>').move(0, 30)
-		.animate(100, '<>').rotate(3)
-		.animate(150, '<').move(0, -20)
-		.animate(100, '<>').rotate(-2)
-		.animate(300, '>').move(0, 0)
+		.animate(100, '>').dmove(0, 30)
+		.animate(200, '<>').rotate(3)
+		.animate(150, '<').dmove(-20, -40)
+		.animate(200, '<>').rotate(-2)
+		.animate(300, '>').dmove(20, 10)
 		.animate(300, '<>').rotate(0);
 	
-	circle.animate(1500, '>', 0).attr({
-		rx: 512,
-		ry: 128,
-		opacity: 0
-	  })
+	circle
+		.attr({
+			rx: 0,
+			ry: 0,
+			opacity: 0.3
+		})
+		.animate(1300, '>', 0).attr({
+			rx: 512,
+			ry: 128,
+			opacity: 0
+		})
 		
-	circle2.animate(1500, '>', 150).attr({
-		rx: 512,
-		ry: 128,
-		opacity: 0
-	})
+	circle2
+		.attr({
+			rx: 0,
+			ry: 0,
+			opacity: 1
+		})
+		.animate(1300, '>', 100).attr({
+			rx: 512,
+			ry: 128,
+			opacity: 0
+		})
+		
+	setTimeout(function(){circle3.show()}, 1000)
+}
+
+function idleAnimation () {
+	bobberSet
+		.animate(800, '<>').dmove(0, 10)
+		.animate(800, '<>').dmove(0, -10)
+		.after(idleAnimation)
+}
+
+function idleAnimationCircle () {
+	circle3
+		.attr({
+			rx: 0,
+			ry: 0,
+			opacity: 0.5
+		})
+		.animate(1600, '>').attr({
+			rx: 102,
+			ry: 24,
+			opacity: 0
+		})
+		.after(idleAnimationCircle)
 }
