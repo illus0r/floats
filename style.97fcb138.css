@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  background: linear-gradient(#7293A6 26%, #548295 69%, #3C6B7E 100%);
+}
+
+svg svg {
+  display: none;
+}
+
+input#float-value {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  font-size: 30px;
+  outline: none;
+}
+input#float-value:focus {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+}
+input#float-value::placeholder {
+  color: black;
+  opacity: 0.5;
+}
+
+/*# sourceMappingURL=/style.97fcb138.css.map */
