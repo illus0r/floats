@@ -151,7 +151,7 @@ function compose(partsAvailable_=[], inputText="Hello"){
 	<type5>:
 	- <dragonfly> <0_64> <64_64> <64_64> <64_128> <water> <128_128> <128_32> <32_8> <8_0>
 	<type6>:
-	- <dragonfly> <0_32> <32_8> <8_8> <32_32> <water> <32_64> <64_8> <8_0>
+	- <dragonfly> <0_32> <32_8> <8_8> <8_32> <water> <32_64> <64_8> <8_0>
 	<type7>:
 	- <dragonfly> <0_64> <64_32> <32_32> <32_64> <64_128> <water> <128_64> <64_8> <8_0>
 	<type8>:
