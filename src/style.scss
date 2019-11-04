@@ -4,8 +4,6 @@ $color-text: #CAD1D6;
 body{
   margin: 0;
 	background: linear-gradient(#7293A6 26%, #548295 69%, #3C6B7E 100%);
-	//background-color: #A6C3FC;
-	//background-color: #9FC1F8;
 	font-family: "Roboto", sans-serif;
 	font-size: $fsi;
 	color: $color-text;
@@ -20,11 +18,14 @@ svg{
 .input{
 	position: absolute;
 	bottom: 2vw;
-	left: 2vw;
+	left: 4vw;
 	.label{
 		display: inline-block;
 	}
 	input#float-value{
+		box-sizing: border-box;
+		padding-right: 30px;
+		width: 150px;
 		color: $color-text;
 		font-size: $fsi;
 		background: transparent;
@@ -41,17 +42,34 @@ svg{
 	}
 }
 
-.park{
+@mixin image-button{
 	text-indent: -9999px;
-	background: url('./park.svg') no-repeat;
+	display: block;
+	background-repeat: no-repeat;
 	background-size: contain;
+}
+
+.park{
+	@include image-button;
+	background-image: url('./park.svg');
 	width: 4vw;
 	height: 3vw;
-	display: block;
+	min-width: 40px;
+	min-height: 30px;
 	position: absolute;
-	left: 2vw;
+	left: 4vw;
 	top: 3vw;
 	&:hover{
 		opacity: 0.6;
 	}
+}
+
+#button_rnd{
+	@include image-button;
+	background-image: url('./random.svg');
+	position: absolute;
+	right: -10px;
+	top: -2px;
+	width: 30px;
+	height: 30px;
 }
