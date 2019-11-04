@@ -7,9 +7,17 @@ body{
 	font-family: "Roboto", sans-serif;
 	font-size: $fsi;
 	color: $color-text;
+	//box-sizing: border-box;
 } 
 
+#drawing{
+	width: 100vw;
+	height: 100vh;
+}
 svg{
+	width: 100vw;
+	height: 95vh;
+	margin-top: 5vh;
 	svg{
 		display: none;
 	}
@@ -17,7 +25,7 @@ svg{
 
 .input{
 	position: absolute;
-	bottom: 2vw;
+	top: 3vw;
 	left: 4vw;
 	.label{
 		display: inline-block;
@@ -57,8 +65,9 @@ svg{
 	min-width: 40px;
 	min-height: 30px;
 	position: absolute;
-	left: 4vw;
-	top: 3vw;
+	right: 4vw;
+	bottom: 3vw;
+	opacity: 0.8;
 	&:hover{
 		opacity: 0.6;
 	}

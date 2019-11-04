@@ -31,7 +31,7 @@ function hashCode(str) {
   }
 
 function init(){
-	draw.size('100vw', '100vh')
+	//draw.size('100vw', '100vh')
 	var ajax = new XMLHttpRequest()
 	ajax.open('GET', '../src/floats.svg', true)
 	ajax.send()
@@ -52,16 +52,23 @@ function init(){
 		// Binding events listeners
 
 		document.querySelector("input#float-value").addEventListener("input", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
-		document.getElementById("button_rnd").onclick = function() {myFunction()};
-			function myFunction() {
-				console.log('yo');
-				let len = Object.keys(names).length
-				let index = Math.floor(Math.random() * len) + 1
-				document.getElementById("float-value").value = names[index]
-				onTextChange()
+		document.getElementById("button_rnd").onclick = function() {roulette()};
+
+		function roulette(){
+			for(var i = 1; i < 10; i+=1){
+				setTimeout(random_name, i*100)
+			}
+		}
+		
+		function random_name() {
+			console.log('yo');
+			let len = Object.keys(names).length
+			let index = Math.floor(Math.random() * len) + 1
+			document.getElementById("float-value").value = names[index]
+			onTextChange()
     }
 
-		onTextChange()
+		roulette()
 		idleAnimation()
 		idleAnimationCircle()
 

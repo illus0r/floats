@@ -46312,7 +46312,7 @@ function hashCode(str) {
 }
 
 function init() {
-  draw.size('100vw', '100vh');
+  //draw.size('100vw', '100vh')
   var ajax = new XMLHttpRequest();
   ajax.open('GET', '../src/floats.svg', true);
   ajax.send();
@@ -46334,10 +46334,16 @@ function init() {
     document.querySelector("input#float-value").addEventListener("input", onTextChange); // Меняет цвета по нажатию любой клавиши в поле.
 
     document.getElementById("button_rnd").onclick = function () {
-      myFunction();
+      roulette();
     };
 
-    function myFunction() {
+    function roulette() {
+      for (var i = 1; i < 10; i += 1) {
+        setTimeout(random_name, i * 100);
+      }
+    }
+
+    function random_name() {
       console.log('yo');
       var len = Object.keys(names).length;
       var index = Math.floor(Math.random() * len) + 1;
@@ -46345,7 +46351,7 @@ function init() {
       onTextChange();
     }
 
-    onTextChange();
+    roulette();
     idleAnimation();
     idleAnimationCircle();
     bobberGroup.click(animate);
@@ -46514,7 +46520,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50413" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53175" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
