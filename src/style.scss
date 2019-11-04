@@ -1,8 +1,14 @@
+$fsi: 24px;
+$color-text: #CAD1D6;
+
 body{
   margin: 0;
 	background: linear-gradient(#7293A6 26%, #548295 69%, #3C6B7E 100%);
 	//background-color: #A6C3FC;
 	//background-color: #9FC1F8;
+	font-family: "Roboto", sans-serif;
+	font-size: $fsi;
+	color: $color-text;
 } 
 
 svg{
@@ -11,22 +17,41 @@ svg{
 	}
 }
 
-input#float-value{
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  border: none;
-  background: transparent;
-  border-bottom: 1px solid rgba(0,0,0,0.4);
-  
-  font-size: 30px;
-  outline: none;
-
-	&:focus{
-		border-bottom: 1px solid rgba(0,0,0,0.9);
+.input{
+	position: absolute;
+	bottom: 2vw;
+	left: 2vw;
+	.label{
+		display: inline-block;
 	}
-  &::placeholder {
-    color: black;
-    opacity: 0.5;
-  }
+	input#float-value{
+		color: $color-text;
+		font-size: $fsi;
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid rgba($color-text,0.4);
+		outline: none;
+		&:focus{
+			border-bottom: 1px solid rgba($color-text,0.9);
+		}
+		&::placeholder {
+			color: $color-text;
+			opacity: 0.5;
+		}
+	}
+}
+
+.park{
+	text-indent: -9999px;
+	background: url('./park.svg') no-repeat;
+	background-size: contain;
+	width: 4vw;
+	height: 3vw;
+	display: block;
+	position: absolute;
+	left: 2vw;
+	top: 3vw;
+	&:hover{
+		opacity: 0.6;
+	}
 }
