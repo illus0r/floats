@@ -11,7 +11,6 @@ var floatSVG
 var draw = SVG('drawing')
 let bobberGroup = draw.group()
 let bobberOuterGroup = draw.group()
-let bobberSet = draw.set()
 
 
 import * as names from '../src/names.json'
@@ -49,6 +48,11 @@ function init(){
 			partsAvailable.push(p)
 		})
 
+
+		circle = SVG.select('#waterCircle')
+		circle2 = SVG.select('#waterCircle2')
+		circle3 = SVG.select('#waterCircle3')
+
 		// Binding events listeners
 
 		document.querySelector("input#float-value").addEventListener("input", onTextChange) // Меняет цвета по нажатию любой клавиши в поле.
@@ -66,13 +70,13 @@ function init(){
 			let index = Math.floor(Math.random() * len) + 1
 			document.getElementById("float-value").value = names[index]
 			onTextChange()
-    }
+    	}
 
 		roulette()
 		idleAnimation()
 		idleAnimationCircle()
 
-		bobberGroup.click(animate)
+		draw.click(animate)
 	}
 }
 
@@ -88,11 +92,9 @@ function onTextChange() {
  	
 	var offsetY = 0
 	var floatCurrnet = draw.group()
-	bobberSet.clear(); // очищает сет перед новым вводом текста
 	parts.forEach(pId => {
 		let p = draw.use(pId)//.clone()
 		bobberGroup.add(p); // добавляю элементы в группу для анимации
-		bobberSet.add(p); // добавляю элементы в сет
 		p.attr('opacity','1')
 		p.move("-256", offsetY)
 		p.back()
@@ -103,10 +105,6 @@ function onTextChange() {
 
 	draw.viewbox(-128, -offsetY*.05, 256, offsetY+offsetY*.1)
 	//draw.rect(512, offsetY).attr('fill','red').move(-256, 0)
-
-	circle = SVG.select('#waterCircle')
-	circle2 = SVG.select('#waterCircle2')
-	circle3 = SVG.select('#waterCircle3')
 
 	circle3.hide()
 	setTimeout(function(){circle3.show()}, 100)
