@@ -28,7 +28,7 @@ function hashCode(str) {
   }
 
 function init(){
-	draw.size('440', '600')
+	draw.size('1200', '600')
 	//var rect = draw.rect(400, 400).attr({ fill: '#f06' })
 	var ajax = new XMLHttpRequest()
 	ajax.open('GET', '/src/floats.svg', true)
@@ -85,7 +85,7 @@ function onTextChange() {
 	var offsetY = 0
 	var offsetX = -128/scale
 	
-	while(offsetX < 500/scale){
+	while(offsetX < 1200/scale){
 		if(offsetY > 600/scale) {
 			offsetY = Math.random()*400-400
 			offsetX += 256
